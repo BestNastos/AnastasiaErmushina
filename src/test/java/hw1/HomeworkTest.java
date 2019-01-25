@@ -119,5 +119,7 @@ public class HomeworkTest {
 
         // 17 Close Browser
         driver.close();
+
+
     }
 }
