@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 
-public class SimpleTestWithAnnotations extends SeleniumBase {
+public class SimpleTestWithAnnotations2 extends SeleniumBase {
 
     private WebDriver driver;
 
@@ -34,7 +34,7 @@ public class SimpleTestWithAnnotations extends SeleniumBase {
         driver.close();
     }
 
-    @Test(invocationCount = 3)
+    @Test(invocationCount = 2)
     public void simpleTest() {
 
         String handle = driver.getWindowHandle();
