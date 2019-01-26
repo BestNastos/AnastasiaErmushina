@@ -1,4 +1,5 @@
 package lesson2;
+import base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 
-public class SimpleTestWithAnnotations {
+public class SimpleTestWithAnnotations extends SeleniumBase {
 
     private WebDriver driver;
 
@@ -31,7 +32,6 @@ public class SimpleTestWithAnnotations {
     @AfterMethod
     public void afterMethod(){
         driver.close();
-
     }
 
     @Test(invocationCount = 3)
@@ -55,6 +55,5 @@ public class SimpleTestWithAnnotations {
         driver.findElement(By.cssSelector("[id='name']")).sendKeys("epam");
         driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
         driver.findElement(By.cssSelector("[id='login-button']")).click();
-
     }
 }
