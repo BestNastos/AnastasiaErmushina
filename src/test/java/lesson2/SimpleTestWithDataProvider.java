@@ -11,15 +11,16 @@ public class SimpleTestWithDataProvider {
     @DataProvider
     private Object[][] simpleDataProvider(){
         return new Object[][]{
-                {7},
+                {7, "hello"},
+                {9, "world"}
 
         };
     }
 
 
     @Test(dataProvider = "simpleDataProvider")
-    public void simpleTest(int i) {
-        System.out.println("int = " + i + "\n" + "String = " );
+    public void simpleTest(int i, String str) {
+        System.out.println("int = " + i + "\n" + "String = " +str);
 
     }
 }
