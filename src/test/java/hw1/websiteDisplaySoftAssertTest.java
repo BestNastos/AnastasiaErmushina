@@ -4,21 +4,35 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
-public class HomeworkSoftAssertTest {
+public class websiteDisplaySoftAssertTest {
+
+    SoftAssert softAssert;
+    WebDriver driver;
+
+    @BeforeMethod
+    public void beforeMethod(){
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        softAssert = new SoftAssert();
+    }
+
+    // 17 Close Browser
+    @AfterMethod
+    public void afterMethod(){
+        driver.close();
+    }
 
     @Test
-    public void checkThatSiteIsProperlyDisplayed() {
-
-        SoftAssert softAssert = new SoftAssert();
+    public void websiteDisplayTest() {
 
         //1 Open test site by URL
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //2 Assert Browser title
@@ -38,8 +52,13 @@ public class HomeworkSoftAssertTest {
         softAssert.assertEquals(driver.getTitle(), "Home Page");
 
         //6 Assert that there are 4 items on the header section are displayed and they have proper texts
-        List<WebElement> navigationBar = driver.findElements(By.cssSelector("header > div > nav > ul"));
+        List<WebElement> navigationBar = driver.findElements(By
+                .cssSelector("body > header > div > nav > ul.uui-navigation.nav.navbar-nav.m-l8"));
         List<WebElement> elements = navigationBar.get(0).findElements(By.xpath("*"));
+        softAssert.assertEquals(elements.size(), 4);
+        for (WebElement element : elements) {
+            softAssert.assertTrue(element.isDisplayed());
+        }
         softAssert.assertEquals(elements.get(0).getText(), "HOME");
         softAssert.assertEquals(elements.get(1).getText(), "CONTACT FORM");
         softAssert.assertEquals(elements.get(2).getText(), "SERVICE");
@@ -54,6 +73,7 @@ public class HomeworkSoftAssertTest {
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<WebElement> textUnderIcons = driver.findElements(By.className("benefit-txt"));
+        softAssert.assertEquals(textUnderIcons.size(), 4);
         softAssert.assertEquals(textUnderIcons.get(0).getText(), "To include good practices\n" +
                 "and ideas from successful\n" +
                 "EPAM project");
@@ -66,11 +86,9 @@ public class HomeworkSoftAssertTest {
                 "wish to get more…");
 
         //9 Assert a text of the main headers
-        WebElement mainHeader1 = driver.findElement(By.cssSelector("body > div > " +
-                "div.uui-main-container > main > div.main-content > h3.main-title.text-center"));
+        WebElement mainHeader1 = driver.findElement(By.name("main-title"));
         softAssert.assertEquals(mainHeader1.getText(), "EPAM FRAMEWORK WISHES…");
-        WebElement mainHeader2 = driver.findElement(By.cssSelector("body > div > " +
-                "div.uui-main-container > main > div.main-content > p"));
+        WebElement mainHeader2 = driver.findElement(By.name("jdi-text"));
         softAssert.assertEquals(mainHeader2.getText(), "LOREM IPSUM DOLOR SIT AMET, " +
                 "CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT " +
                 "UT LABORE ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS " +
@@ -79,19 +97,13 @@ public class HomeworkSoftAssertTest {
                 "ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
 
         //10 Assert that there is the iframe in the center of page
-        List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
-        softAssert.assertTrue(iframes.size() > 0);
+        WebElement iframe = driver.findElement(By.cssSelector("[id='iframe']"));
+        softAssert.assertTrue(iframe.isDisplayed());
 
         //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
-        driver = driver.switchTo().frame(iframes.get(0));
-        boolean isLogoFound = false;
-        try {
-            driver.findElement(By.cssSelector("#epam_logo"));
-            isLogoFound = true;
-        } catch (Exception e) {
-            isLogoFound = false;
-        }
-        softAssert.assertTrue(isLogoFound);
+        driver = driver.switchTo().frame(iframe);
+        WebElement logo = driver.findElement(By.cssSelector("#epam_logo"));
+        softAssert.assertTrue(logo.isDisplayed());
 
         //12 Switch to original window back
         driver.switchTo().defaultContent();
@@ -102,20 +114,17 @@ public class HomeworkSoftAssertTest {
         softAssert.assertEquals(subHeader.getText(), "JDI GITHUB");
 
         //14 Assert that JDI GITHUB is a link and has a proper URL
-        softAssert.assertEquals(subHeader
-                .getAttribute("href"), "https://github.com/epam/JDI");
+        softAssert.assertEquals(subHeader.getTagName(), "a");
+        softAssert.assertEquals(subHeader.getAttribute("href"), "https://github.com/epam/JDI");
 
         //15 Assert that there is Left Section
-        WebElement leftSection = driver.findElement(By.cssSelector("#mCSB_1"));
+        WebElement leftSection = driver.findElement(By.className("sidebar-menu"));
         softAssert.assertTrue(leftSection.isDisplayed());
 
         //16 Assert that there is Footer
-        WebElement footer = driver.findElement(By.cssSelector("footer > div > div"));
+        WebElement footer = driver.findElement(By.tagName("footer"));
         softAssert.assertTrue(footer.isDisplayed());
+
         softAssert.assertAll();
-
-        // 17 Close Browser
-        driver.close();
-
     }
 }
