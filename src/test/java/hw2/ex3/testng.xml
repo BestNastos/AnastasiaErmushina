@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestNG Suite with Annotations" verbose="1" >
+
+    <test name="Annotations">
+
+        <classes>
+            <class name="hw2.ex3.Hw1WithAnnotationsTest" />
+        </classes>
+
+    </test>
+
+</suite>

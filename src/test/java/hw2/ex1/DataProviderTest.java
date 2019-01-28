@@ -1,4 +1,4 @@
-package hw2;
+package hw2.ex1;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,9 @@ import org.testng.annotations.*;
 import static org.testng.Assert.*;
 
 public class DataProviderTest {
-
+// где создать экземпляр драйвера TODO
+    // шаги!!! TODO
+    //data-provider-thread-count="" TODO
     @DataProvider(parallel = true)
     public Object[][] dataProvider() {
         return new Object[][]{

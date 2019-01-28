@@ -1,28 +1,44 @@
-package hw1;
+package hw2.ex3;
 
+import base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
-import static java.lang.System.setProperty;
 import static org.testng.Assert.assertTrue;
 
-public class HomeworkTest {
+public class Hw1WithAnnotationsTest extends SeleniumBase {
+
+    @BeforeClass
+    public void beforeClass(){
+        driver = new ChromeDriver();
+    }
+
+    @BeforeMethod
+    public void beforeMethod(){
+        driver.manage().window().maximize();
+    }
+
+    @AfterMethod
+    public void afterMethod(){
+        System.out.println(driver.getTitle());
+    }
+
+    @AfterClass
+    public void afterClass(){
+        System.out.println(System.currentTimeMillis());
+    }
+
 
     @Test
     public void checkThatSiteIsProperlyDisplayed() {
 
         //1 Open test site by URL
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //2 Assert Browser title
@@ -118,10 +134,5 @@ public class HomeworkTest {
         //16 Assert that there is Footer
         WebElement footer = driver.findElement(By.cssSelector("footer > div > div"));
         assertTrue(footer.isDisplayed());
-
-        // 17 Close Browser
-        driver.close();
-
-
     }
 }

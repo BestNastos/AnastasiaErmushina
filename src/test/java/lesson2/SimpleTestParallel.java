@@ -12,7 +12,6 @@ import static org.testng.Assert.assertEquals;
 
 public class SimpleTestParallel {
 
-
     @Test
     public void simpleTest1() {
         //1
