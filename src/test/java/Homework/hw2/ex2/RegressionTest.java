@@ -1,4 +1,4 @@
-package hw2.ex2;
+package Homework.hw2.ex2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class RegressionOrSmokeTest {
+public class RegressionTest {
 
     @Test(groups = {"regression"})
     public void checkThatSiteIsProperlyDisplayed1() {
@@ -229,7 +229,7 @@ public class RegressionOrSmokeTest {
 
     }
 
-    @Test(groups = {"smoke"})
+    @Test(groups = {"regression"})
     public void checkThatSiteIsProperlyDisplayed3() {
 
         //1 Open test site by URL

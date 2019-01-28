@@ -1,4 +1,4 @@
-package hw2.ex1;
+package Homework.hw2.ex1;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
