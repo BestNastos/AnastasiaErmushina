@@ -9,9 +9,7 @@ import org.testng.annotations.*;
 import static org.testng.Assert.*;
 
 public class DataProviderTest {
-// где создать экземпляр драйвера TODO
-    // шаги!!! TODO
-    //data-provider-thread-count="" TODO
+
     @DataProvider(parallel = true)
     public Object[][] dataProvider() {
         return new Object[][]{
@@ -28,14 +26,16 @@ public class DataProviderTest {
         };
     }
 
-    @Test(dataProvider = "dataProvider", threadPoolSize = 4)
+    @Test(dataProvider = "dataProvider")
     public void iconTextTest(String selector, String expectedText) {
+
         WebDriver driver = new ChromeDriver();
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         WebElement actualText = driver.findElement(By.className("icon-" + selector))
                 .findElement(By.xpath("../.."))
                 .findElement(By.cssSelector("[class='benefit-txt']"));
+
         assertEquals(actualText.getText(), expectedText);
 
         driver.close();

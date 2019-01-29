@@ -12,11 +12,11 @@ import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 
 public class SimpleTest {
-
-    @BeforeClass
-    public void beforeClass() {
-        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
-    }
+//
+//    @BeforeClass
+//    public void beforeClass() {
+//        setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
+//    }
 
     @Test
     public void simpleTest() {

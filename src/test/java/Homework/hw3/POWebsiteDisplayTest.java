@@ -1,6 +1,5 @@
-package lesson3;
+package Homework.hw3;
 
-import base.lesson3.IndexPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -12,15 +11,15 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
-public class PageObjectTest {
+public class POWebsiteDisplayTest {
 
     WebDriver driver;
-    IndexPage indexPage;
+    HomePage homePage;
 
     @BeforeClass
     public void beforeClass() {
         driver = new ChromeDriver();
-        indexPage = PageFactory.initElements(driver, IndexPage.class);
+        homePage = PageFactory.initElements(driver, HomePage.class);
     }
 
     @BeforeMethod
@@ -41,7 +40,7 @@ public class PageObjectTest {
         assertEquals(driver.getTitle(), "Home Page");
 
         //4 login
-        indexPage.login("epam", "1234");
+        homePage.login("epam", "1234");
         //5
         driver.close();
     }

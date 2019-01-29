@@ -1,6 +1,5 @@
 package Homework.hw2.ex3;
 
-import base.SeleniumBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,7 +10,7 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class Hw1WithAnnotationsTest extends SeleniumBase {
+public class Hw1WithAnnotationsTest extends SeleniumBaseHomework {
 
     @BeforeClass
     public void beforeClass(){
