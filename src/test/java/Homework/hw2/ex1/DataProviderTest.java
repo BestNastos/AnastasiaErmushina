@@ -32,6 +32,8 @@ public class DataProviderTest {
         WebDriver driver = new ChromeDriver();
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
+        // TODO This is not the best approach. You have to use findElements as little as possible, cause this is time consuming operations
+        // TODO besides, in this particular case you can use ony one call instead of three
         WebElement actualText = driver.findElement(By.className("icon-" + selector))
                 .findElement(By.xpath("../.."))
                 .findElement(By.cssSelector("[class='benefit-txt']"));
