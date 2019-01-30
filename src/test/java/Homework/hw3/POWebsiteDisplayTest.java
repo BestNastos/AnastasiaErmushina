@@ -1,8 +1,11 @@
 package Homework.hw3;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,6 +31,11 @@ public class POWebsiteDisplayTest {
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
 
+    @AfterMethod
+    public void afterMethod(){
+        driver.close();
+    }
+
     @Test
     public void simpleTest() {
         //2
@@ -39,4 +47,28 @@ public class POWebsiteDisplayTest {
         //5
         driver.close();
     }
+
+
+    /*@Test
+    public void simpleTest() {
+
+        //1
+        homePage.open(*//*homepagedata.url*//*);
+
+        //2
+        // checktitle(title)
+        assertEquals(driver.getTitle(), "Home Page");
+
+        //3 login
+        // передаем Users.PETER
+        homePage.login("epam", "1234");
+
+
+        //4
+        // можно ли перенести в HomePage assert? TODO
+        assertEquals(homePage.getUserName().getText(), "PITER CHAILOVSKII");
+
+        //6/
+        //indpage.checknavigationitems
+    }*/
 }

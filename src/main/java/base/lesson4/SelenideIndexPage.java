@@ -1,10 +1,11 @@
-package Homework.hw3;
+package base.lesson4;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage {
+public class SelenideIndexPage {
+    private SelenideIndexPage indexPage;
     WebDriver driver;
 
     @FindBy(css = "[id='user-icon']")
@@ -22,11 +23,11 @@ public class HomePage {
     @FindBy(css = "[id='user-name']")
     private WebElement userName;
 
-    public HomePage(WebDriver driver){
+    public SelenideIndexPage(WebDriver driver){
         this.driver = driver;
     }
 
-    public void login(String name, String psw) {
+    public void login(String name, String psw){
         profileButton.click();
         login.sendKeys(name);
         //user.password:
@@ -39,10 +40,7 @@ public class HomePage {
         return userName;
     }
 
-// TODO Basically, comments like this should not be in repo.
-// TODO But this idea is OK, take a look on  HomePage(WebDriver driver) {...} constructor
-// TODO and how it works within PageFactory, there is one tricky thing...
-//    public void open(){
-//        driver.get("https://www.epam.com/");
-//    }
+    public void open(){
+        driver.get("https://epam.github.io/JDI/index.html");
+    }
 }
