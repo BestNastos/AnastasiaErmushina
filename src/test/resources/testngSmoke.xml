@@ -10,11 +10,9 @@
             </run>
         </groups>
 
-        <classes>
-            <class name="Homework.hw2.ex2.RegressionAndSmokeTest" />
-            <class name="Homework.hw2.ex2.RegressionOrSmokeTest" />
-            <class name="Homework.hw2.ex2.SmokeTest" />
-        </classes>
+        <packages>
+            <package name="Homework.hw2.ex2" />
+        </packages>
 
     </test>
 
