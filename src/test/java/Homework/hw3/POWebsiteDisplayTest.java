@@ -45,7 +45,7 @@ public class POWebsiteDisplayTest {
         //4 login
         homePage.login("epam", "1234");
         //5
-        driver.close();
+       // driver.close();
     }
 
 
