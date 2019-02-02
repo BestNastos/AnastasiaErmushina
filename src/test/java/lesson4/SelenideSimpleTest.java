@@ -17,16 +17,15 @@ public class SelenideSimpleTest {
         Configuration.browser = Browsers.CHROME;
         Configuration.timeout = 5000;
        // Configuration.pollingInterval =
-
     }
 
     @Test
     public void simpleTest() {
 
         // 1
-        // по умолчанию хром, если хотим поменять:
+        // to change default browser:
         // Configuration.browser = Browsers.FIREFOX;
-        // не нужно будет скачивать драйверы, он все сам
+        // no need to download drivers
 
         //2
         open("https://epam.github.io/JDI/index.html");
@@ -40,7 +39,7 @@ public class SelenideSimpleTest {
         $("[id='password']").sendKeys("1234");
         $("[id='login-button']").click();
 
-        $("#user-name").shouldHave(text("PETER CHAILOVSKII"));
+        $("#user-name").shouldHave(text("PITER CHAILOVSKII"));
 
         //5
         close();

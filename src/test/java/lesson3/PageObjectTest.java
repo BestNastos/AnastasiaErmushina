@@ -33,7 +33,6 @@ public class PageObjectTest {
     @Test
     public void simpleTest() {
 
-
         //2
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
