@@ -1,33 +1,27 @@
 package base.lesson4;
 
-import org.openqa.selenium.WebDriver;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SelenideIndexPage {
-    private SelenideIndexPage indexPage;
-    WebDriver driver;
 
     @FindBy(css = "[id='user-icon']")
-    private WebElement profileButton;
+    private SelenideElement profileButton;
 
     @FindBy(css = "[id='name']")
-    private WebElement login;
+    private SelenideElement login;
 
     @FindBy(css = "[id='password']")
-    private WebElement password;
+    private SelenideElement password;
 
     @FindBy(css = "[id='login-button']")
-    private WebElement submit;
+    private SelenideElement submit;
 
     @FindBy(css = "[id='user-name']")
-    private WebElement userName;
+    private SelenideElement userName;
 
-    public SelenideIndexPage(WebDriver driver){
-        this.driver = driver;
-    }
-
-    public void login(String name, String psw){
+    public void login(String name, String psw) {
         profileButton.click();
         login.sendKeys(name);
         //user.password:
@@ -36,11 +30,7 @@ public class SelenideIndexPage {
 
     }
 
-    public WebElement getUserName(){
+    public WebElement getUserName() {
         return userName;
-    }
-
-    public void open(){
-        driver.get("https://epam.github.io/JDI/index.html");
     }
 }

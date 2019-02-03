@@ -12,13 +12,6 @@ import static org.testng.Assert.assertEquals;
 
 public class SelenideSimpleTest {
 
-    @BeforeSuite
-    public void beforeSuite() {
-        Configuration.browser = Browsers.CHROME;
-        Configuration.timeout = 5000;
-       // Configuration.pollingInterval =
-    }
-
     @Test
     public void simpleTest() {
 
