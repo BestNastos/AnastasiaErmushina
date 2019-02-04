@@ -28,6 +28,7 @@ public class POWebsiteDisplayTest {
     public void simpleTest() {
 
         //1 Open test site by URL
+        // TODO All f this enum calls can be simplified by static import
         homePage.open(HomePageData.URL);
 
         //2 Assert Browser title

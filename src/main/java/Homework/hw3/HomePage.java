@@ -62,12 +62,12 @@ public class HomePage {
     @FindBy(css = "div[class='footer-bg']")
     private WebElement footer;
 
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void open(HomePageData url){
+    public void open(HomePageData url) {
         driver.get(url.toString());
     }
 
@@ -86,6 +86,8 @@ public class HomePage {
         assertEquals(usernameElement.getText(), user.name);
     }
 
+    // TODO You can parameterised this method by Array of enums (NavigationItems)
+    // TODO Take a look on default enum methods
     public void checkNavigationItems() {
 
         assertEquals(navigationItems.size(), 4);
@@ -93,6 +95,7 @@ public class HomePage {
             assertTrue(item.isDisplayed());
         }
 
+        // TODO This will be better with cycle
         assertEquals(navigationItems.get(0).getText(), HOME.toString());
         assertEquals(navigationItems.get(1).getText(), CONTACT.toString());
         assertEquals(navigationItems.get(2).getText(), SERVICE.toString());
@@ -106,8 +109,10 @@ public class HomePage {
         }
     }
 
+    // TODO Same story like checkNavigationItems()
     public void checkFourTextsUnderBenefitImages() {
         assertEquals(textsUnderBenefitImages.size(), 4);
+        // TODO This will be better with cycle
         assertEquals(textsUnderBenefitImages.get(0).getText(), PRACTISE.toString());
         assertEquals(textsUnderBenefitImages.get(1).getText(), CUSTOM.toString());
         assertEquals(textsUnderBenefitImages.get(2).getText(), MULTI.toString());
