@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-import static Homework.hw3.NavigationItems.*;
-import static Homework.hw3.Benefits.*;
 import static Homework.hw3.HomePageData.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -86,20 +84,15 @@ public class HomePage {
         assertEquals(usernameElement.getText(), user.name);
     }
 
-    // TODO You can parameterised this method by Array of enums (NavigationItems)
-    // TODO Take a look on default enum methods
-    public void checkNavigationItems() {
-
+    public void checkNavigationItems(NavigationItems [] expected) {
         assertEquals(navigationItems.size(), 4);
         for (WebElement item : navigationItems) {
             assertTrue(item.isDisplayed());
         }
 
-        // TODO This will be better with cycle
-        assertEquals(navigationItems.get(0).getText(), HOME.toString());
-        assertEquals(navigationItems.get(1).getText(), CONTACT.toString());
-        assertEquals(navigationItems.get(2).getText(), SERVICE.toString());
-        assertEquals(navigationItems.get(3).getText(), METALS.toString());
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(navigationItems.get(i).getText(), expected[i].toString());
+        }
     }
 
     public void checkFourBenefitImagesDisplayed() {
@@ -109,14 +102,11 @@ public class HomePage {
         }
     }
 
-    // TODO Same story like checkNavigationItems()
-    public void checkFourTextsUnderBenefitImages() {
+    public void checkFourTextsUnderBenefitImages(Benefits [] expected) {
         assertEquals(textsUnderBenefitImages.size(), 4);
-        // TODO This will be better with cycle
-        assertEquals(textsUnderBenefitImages.get(0).getText(), PRACTISE.toString());
-        assertEquals(textsUnderBenefitImages.get(1).getText(), CUSTOM.toString());
-        assertEquals(textsUnderBenefitImages.get(2).getText(), MULTI.toString());
-        assertEquals(textsUnderBenefitImages.get(3).getText(), BASE.toString());
+        for (int i = 0; i < expected.length; i++) {
+            assertEquals(textsUnderBenefitImages.get(i).getText(), expected[i].toString());
+        }
     }
 
     public void checkTextOfMainHeaders() {
