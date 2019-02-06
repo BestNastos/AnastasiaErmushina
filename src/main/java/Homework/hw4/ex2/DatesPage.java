@@ -86,7 +86,7 @@ public class DatesPage {
                 offset = width;
                 break;
         }
-        setHandle(0, roundADouble(offset));
+        setHandle(0, (int) offset);
         switch (to.value) {
             case 0:
                 offset = -width - percent;
@@ -98,7 +98,7 @@ public class DatesPage {
                 offset = percent;
                 break;
         }
-        setHandle(1, roundADouble(offset));
+        setHandle(1, (int) offset);
     }
 
     private void setHandle(int handleNumber, int offset) {
@@ -107,11 +107,6 @@ public class DatesPage {
                 .moveByOffset(offset, 0)
                 .release()
                 .perform();
-    }
-
-    private int roundADouble(double value) {
-        if (value % (int) value < 0.5) return (int) value;
-        else return (int) value + 1;
     }
 
     public void checkLogForSliders(SliderValue from, SliderValue to) {
