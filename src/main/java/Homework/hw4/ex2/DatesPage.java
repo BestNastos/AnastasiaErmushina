@@ -67,7 +67,11 @@ public class DatesPage {
         headerServiceOptions.get(1).click();
     }
 
+    // TODO In this case it is not really necessary to parametrise method by enums.
+    // TODO If you want to be sure that they will not pass wrong value here you can just check it.
     public void setRange(SliderValue from, SliderValue to) {
+        // TODO You should work with slider only.
+        // TODO Quite complicated algorithm, but okay.
         range1.get(0).sendKeys(from.toString());
         range1.get(1).sendKeys(to.toString());
         double width = slider.getSize().getWidth();
