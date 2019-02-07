@@ -13,14 +13,15 @@ import static Homework.hw4.ex1.Enums.RadioButtonText.*;
 import static Homework.hw4.ex1.Enums.WebUser.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ServicePageTest extends SelenideBaseHomework {
-    ServicePage servicePage;
+public class DifferentElementsPageTest extends SelenideBaseHomework {
+    private DifferentElementsPage differentElementsPage;
+    private HomePage homePage;
 
     @BeforeMethod
     public void beforeMethod() {
         //1 Open test site by URL
         open(URL.toString());
-        servicePage = page(ServicePage.class);
+        differentElementsPage = page(DifferentElementsPage.class);
     }
 
     @AfterMethod
@@ -31,58 +32,58 @@ public class ServicePageTest extends SelenideBaseHomework {
     @Test
     public void servicePageTest() {
         //2 Assert Browser title
-        servicePage.checkTitle(HOME_PAGE_TITLE);
+        homePage.checkTitle(HOME_PAGE_TITLE);
 
         //3 Perform login
-        servicePage.login(PITER);
+        homePage.login(PITER);
 
         //4 Assert User name in the left-top side of screen that user is loggined
-        servicePage.checkIfUsernameIsCorrect(PITER);
+        homePage.checkIfUsernameIsCorrect(PITER);
 
         //5 Click on "Service" subcategory in the header and check that drop down contains options
-        servicePage.checkServiceHeaderOptions(ServiceSubmenu.values());
+        homePage.checkServiceHeaderOptions(ServiceSubmenu.values());
 
         //6 Click on Service subcategory in the left section and check that drop down contains options
-        servicePage.checkServiceLeftSectionOptions(ServiceSubmenu.values());
+        homePage.checkServiceLeftSectionOptions(ServiceSubmenu.values());
 
         //7 Open through the header menu Service -> Different Elements Page
-        servicePage.openDifferentElementsPage();
+        homePage.openDifferentElementsPage();
 
         //8 Check interface on Different elements page, it contains all needed elements
-        servicePage.checkDifferentElementsPageInterface();
+        differentElementsPage.checkInterface();
 
         //9 Assert that there is Right Section
-        servicePage.checkRightSectionDisplayed();
+        differentElementsPage.checkRightSectionDisplayed();
 
         //10 Assert that there is Left Section
-        servicePage.checkLeftSectionDisplayed();
+        differentElementsPage.checkLeftSectionDisplayed();
 
         //11 Select checkboxes
-        servicePage.selectCheckboxes(WATER, WIND);
+        differentElementsPage.selectCheckboxes(WATER, WIND);
 
         //12 Assert that for each checkbox there is an individual log row
         // and value is corresponded to the status of checkbox.
-        servicePage.checkLogForCheckboxes(WATER, WIND);
+        differentElementsPage.checkLogForCheckboxes(WATER, WIND);
 
         //13 Select radio
-        servicePage.selectRadiobutton(SELEN);
+        differentElementsPage.selectRadiobutton(SELEN);
 
         //14 Assert that for radiobutton there is a log row and
         // value is corresponded to the status of radiobutton.
-        servicePage.checkLogForRadioButton(SELEN);
+        differentElementsPage.checkLogForRadioButton(SELEN);
 
         //15 Select in dropdown
-        servicePage.selectColorDropdown(YELLOW);
+        differentElementsPage.selectColorDropdown(YELLOW);
 
         //16 Assert that for dropdown there is a log row and
         // value is corresponded to the selected value.
-        servicePage.checkLogForColors(YELLOW);
+        differentElementsPage.checkLogForColors(YELLOW);
 
         //17 Unselect and assert checkboxes
-        servicePage.uncheckBoxes(WATER, WIND);
+        differentElementsPage.uncheckBoxes(WATER, WIND);
 
         //18 Assert that for each checkbox there is an individual log row and
         // value is corresponded to the status of checkbox.
-        servicePage.checkLogForAllBoxes(CheckBoxText.values());
+        differentElementsPage.checkLogForAllBoxes(CheckBoxText.values());
     }
 }

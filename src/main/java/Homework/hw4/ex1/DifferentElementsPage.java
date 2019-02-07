@@ -6,41 +6,8 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.testng.Assert.assertEquals;
 
-public class ServicePage {
-
-    // TODO You should not store the whole elements on one page !
-    // TODO It will be better to split this one on several PO like IndexPage, DatesPage, etc
-
-    @FindBy(css = "[id='user-icon']")
-    private SelenideElement profileButton;
-
-    @FindBy(css = "[id='name']")
-    private SelenideElement loginBox;
-
-    @FindBy(css = "[id='password']")
-    private SelenideElement passwordBox;
-
-    @FindBy(css = "[id='login-button']")
-    private SelenideElement submitButton;
-
-    @FindBy(css = "[id='user-name']")
-    private SelenideElement usernameElement;
-
-    @FindBy(css = "li[class='dropdown']")
-    private SelenideElement headerService;
-
-    @FindBy(css = "ul[class='dropdown-menu'] > li")
-    private ElementsCollection headerServiceOptions;
-
-    @FindBy(css = "li[class='menu-title'] > a[ui='label']")
-    private SelenideElement leftSideService;
-
-    @FindBy(css = "ul[class='sub'] > li")
-    private ElementsCollection leftSideServiceOptions;
-
+public class DifferentElementsPage {
     @FindBy(css = "input[type='checkbox']")
     private ElementsCollection checkboxes;
 
@@ -74,43 +41,7 @@ public class ServicePage {
     @FindBy(css = "select.uui-form-element > option:nth-child(4)")
     private ElementsCollection yellow;
 
-    public void checkTitle(HomePageInfo title) {
-        assertEquals(getWebDriver().getTitle(), title.toString());
-    }
-
-    public void login(WebUser user) {
-        profileButton.click();
-        loginBox.sendKeys(user.login);
-        passwordBox.sendKeys(user.password);
-        submitButton.click();
-    }
-
-    public void checkIfUsernameIsCorrect(WebUser user) {
-        usernameElement.shouldHave(text(user.name));
-    }
-
-    public void checkServiceHeaderOptions(ServiceSubmenu[] dropdownElements) {
-        headerService.click();
-        for (int i = 0; i < dropdownElements.length; i++) {
-            headerServiceOptions.get(i).exists();
-            headerServiceOptions.get(i).shouldHave(text(dropdownElements[i].toString()));
-        }
-    }
-
-    public void checkServiceLeftSectionOptions(ServiceSubmenu[] dropdownElements) {
-        leftSideService.click();
-        for (int i = 0; i < dropdownElements.length; i++) {
-            leftSideServiceOptions.get(i).exists();
-            leftSideServiceOptions.get(i).shouldHave(text(dropdownElements[i].toString()));
-        }
-    }
-
-    public void openDifferentElementsPage() {
-        headerService.click();
-        headerServiceOptions.get(6).click();
-    }
-
-    public void checkDifferentElementsPageInterface() {
+    public void checkInterface() {
         checkboxes.shouldHaveSize(4);
         for (SelenideElement checkbox : checkboxes) {
             checkbox.should(exist);
