@@ -11,6 +11,9 @@ import static org.testng.Assert.assertEquals;
 
 public class ServicePage {
 
+    // TODO You should not store the whole elements on one page !
+    // TODO It will be better to split this one on several PO like IndexPage, DatesPage, etc
+
     @FindBy(css = "[id='user-icon']")
     private SelenideElement profileButton;
 
@@ -165,6 +168,7 @@ public class ServicePage {
         log.get(0).shouldHave(text(expectedColor.toString()));
     }
 
+    // TODO Page can consist of lots of checkboxes, so we have to specify certain business actions here
     public void uncheckBoxes(CheckBoxText water, CheckBoxText wind) {
         checkboxLabels.get(water.ordinal()).shouldHave(text(water.toString())).click();
         checkboxes.get(water.ordinal()).shouldNotBe(checked);
@@ -173,6 +177,8 @@ public class ServicePage {
         checkboxes.get(wind.ordinal()).shouldNotBe(checked);
     }
 
+    // TODO In general, assertions should be independent from the elements on web page
+    // TODO You have to create expected log somehow, the order of the log lines does not matter.
     public void checkLogForAllBoxes(CheckBoxText[] expectedText) {
         for (int i = 0; i < expectedText.length; i++) {
             checkboxLabels.get(i).shouldHave(text(expectedText[i].toString())).click();
