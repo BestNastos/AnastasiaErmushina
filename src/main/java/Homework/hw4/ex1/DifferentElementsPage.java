@@ -65,26 +65,19 @@ public class DifferentElementsPage {
         leftSection.shouldBe(visible);
     }
 
-    public void selectCheckboxes(CheckBoxText water, CheckBoxText wind) {
+    public void selectNatureElements(NatureElements water, NatureElements wind) {
         checkboxLabels.get(water.ordinal()).shouldHave(text(water.toString())).click();
         checkboxes.get(water.ordinal()).shouldBe(checked);
         checkboxLabels.get(wind.ordinal()).shouldHave(text(wind.toString())).click();
         checkboxes.get(wind.ordinal()).shouldBe(checked);
     }
 
-    public void checkLogForCheckboxes(CheckBoxText water, CheckBoxText wind) {
-        log.get(0).shouldHave(text(wind.toString()));
-        log.get(0).shouldHave(text("true"));
-        log.get(1).shouldHave(text(water.toString()));
-        log.get(1).shouldHave(text("true"));
-    }
-
-    public void selectRadiobutton(RadioButtonText expectedText) {
+    public void selectMetalRadiobutton(RadioButtonMetals expectedText) {
         radiobuttonLabels.get(expectedText.ordinal()).shouldHave(text(expectedText.toString())).click();
         radiobuttons.get(expectedText.ordinal()).shouldBe(checked);
     }
 
-    public void checkLogForRadioButton(RadioButtonText expectedText) {
+    public void checkLogForRadioButton(RadioButtonMetals expectedText) {
         radiobuttonLabels.get(expectedText.ordinal()).shouldHave(text(expectedText.toString())).click();
         log.get(0).shouldHave(text(expectedText.toString()));
     }
@@ -99,26 +92,14 @@ public class DifferentElementsPage {
         log.get(0).shouldHave(text(expectedColor.toString()));
     }
 
-    // TODO Page can consist of lots of checkboxes, so we have to specify certain business actions here
-    public void uncheckBoxes(CheckBoxText water, CheckBoxText wind) {
-        checkboxLabels.get(water.ordinal()).shouldHave(text(water.toString())).click();
-        checkboxes.get(water.ordinal()).shouldNotBe(checked);
-
-        checkboxLabels.get(wind.ordinal()).shouldHave(text(wind.toString())).click();
-        checkboxes.get(wind.ordinal()).shouldNotBe(checked);
+    public void unselectNatureElements(NatureElements... elements) {
+        for (NatureElements element : elements) {
+            checkboxLabels.get(element.ordinal()).shouldHave(text(element.toString())).click();
+            checkboxes.get(element.ordinal()).shouldNotBe(checked);
+        }
     }
 
-    // TODO In general, assertions should be independent from the elements on web page
-    // TODO You have to create expected log somehow, the order of the log lines does not matter.
-    public void checkLogForAllBoxes(CheckBoxText[] expectedText) {
-        for (int i = 0; i < expectedText.length; i++) {
-            checkboxLabels.get(i).shouldHave(text(expectedText[i].toString())).click();
-            log.get(0).shouldHave(text(expectedText[i].toString()));
-            if (checkboxes.get(i).isSelected()) {
-                log.get(0).shouldHave(text("true"));
-            } else {
-                log.get(0).shouldHave(text("false"));
-            }
-        }
+    public void checkLogForAllNatureElements(NatureElements element, boolean isSelected) {
+        log.findBy(text(element.toString())).shouldHave(text(": condition changed to " + isSelected));
     }
 }

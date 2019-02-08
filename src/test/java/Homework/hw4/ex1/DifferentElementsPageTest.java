@@ -1,15 +1,14 @@
 package Homework.hw4.ex1;
 
-import Homework.hw4.ex1.Enums.CheckBoxText;
 import Homework.hw4.ex1.Enums.ServiceSubmenu;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static Homework.hw4.ex1.Enums.CheckBoxText.*;
+import static Homework.hw4.ex1.Enums.NatureElements.*;
 import static Homework.hw4.ex1.Enums.ColorDropdownText.*;
 import static Homework.hw4.ex1.Enums.HomePageInfo.*;
-import static Homework.hw4.ex1.Enums.RadioButtonText.*;
+import static Homework.hw4.ex1.Enums.RadioButtonMetals.*;
 import static Homework.hw4.ex1.Enums.WebUser.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -31,7 +30,7 @@ public class DifferentElementsPageTest extends SelenideBaseHomework {
     }
 
     @Test
-    public void servicePageTest() {
+    public void differentElementsPageTest() {
         //2 Assert Browser title
         homePage.checkTitle(HOME_PAGE_TITLE);
 
@@ -60,14 +59,15 @@ public class DifferentElementsPageTest extends SelenideBaseHomework {
         differentElementsPage.checkLeftSectionDisplayed();
 
         //11 Select checkboxes
-        differentElementsPage.selectCheckboxes(WATER, WIND);
+        differentElementsPage.selectNatureElements(WATER, WIND);
 
         //12 Assert that for each checkbox there is an individual log row
         // and value is corresponded to the status of checkbox.
-        differentElementsPage.checkLogForCheckboxes(WATER, WIND);
+        differentElementsPage.checkLogForAllNatureElements(WATER, true);
+        differentElementsPage.checkLogForAllNatureElements(WIND, true);
 
         //13 Select radio
-        differentElementsPage.selectRadiobutton(SELEN);
+        differentElementsPage.selectMetalRadiobutton(SELEN);
 
         //14 Assert that for radiobutton there is a log row and
         // value is corresponded to the status of radiobutton.
@@ -81,10 +81,11 @@ public class DifferentElementsPageTest extends SelenideBaseHomework {
         differentElementsPage.checkLogForColors(YELLOW);
 
         //17 Unselect and assert checkboxes
-        differentElementsPage.uncheckBoxes(WATER, WIND);
+        differentElementsPage.unselectNatureElements(WATER, WIND);
 
         //18 Assert that for each checkbox there is an individual log row and
         // value is corresponded to the status of checkbox.
-        differentElementsPage.checkLogForAllBoxes(CheckBoxText.values());
+        differentElementsPage.checkLogForAllNatureElements(WATER, false);
+        differentElementsPage.checkLogForAllNatureElements(WIND, false);
     }
 }
