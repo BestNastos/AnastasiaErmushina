@@ -22,6 +22,7 @@ public class DifferentElementsPageTest extends SelenideBaseHomework {
         //1 Open test site by URL
         open(URL.toString());
         differentElementsPage = page(DifferentElementsPage.class);
+        homePage = page(HomePage.class);
     }
 
     @AfterMethod

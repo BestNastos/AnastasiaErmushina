@@ -17,6 +17,7 @@ public class DatesPageTest extends SelenideBaseHomework {
         //1 Open test site by URL
         open(URL.toString());
         datesPage = page(DatesPage.class);
+        homePage = page(HomePage.class);
     }
 
     @AfterMethod

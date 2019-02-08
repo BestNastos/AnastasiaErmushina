@@ -5,7 +5,9 @@ import Homework.hw4.ex1.Enums.ServiceSubmenu;
 import Homework.hw4.ex1.Enums.WebUser;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -39,6 +41,10 @@ public class HomePage {
 
     @FindBy(css = "ul[class='sub'] > li")
     private ElementsCollection leftSideServiceOptions;
+
+    public void open(HomePageInfo url) {
+        getWebDriver().get(url.toString());
+    }
 
     public void checkTitle(HomePageInfo title) {
         assertEquals(getWebDriver().getTitle(), title.toString());
