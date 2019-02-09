@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestNG Suite" parallel="methods" thread-count="3" >
+    <listeners>
+        <listener class-name="Homework.hw5.ex1.Listener"/>
+    </listeners>
+    <test name="Jenkins Allure">
+        <packages>
+            <package name="Homework.hw5.ex1"/>
+        </packages>
+    </test>
+
+</suite>

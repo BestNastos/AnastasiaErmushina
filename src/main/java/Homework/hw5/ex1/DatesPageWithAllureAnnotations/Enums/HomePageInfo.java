@@ -1,4 +1,4 @@
-package Homework.hw5.ex1.hw4ex2WithAllureAnnotations.Enums;
+package Homework.hw5.ex1.DatesPageWithAllureAnnotations.Enums;
 
 public enum HomePageInfo {
 

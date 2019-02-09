@@ -1,4 +1,4 @@
-package Homework.hw5.ex1.hw4ex2WithAllureAnnotations.Enums;
+package Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums;
 
 public enum WebUser {
     PITER("epam", "1234", "PITER CHAILOVSKII");

@@ -1,18 +1,16 @@
-package Homework.hw5.ex1.hw4ex1WithAllureAnnotations;
+package Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations;
 
-import Homework.hw5.ex1.Listener;
-import Homework.hw5.ex1.hw4ex1WithAllureAnnotations.Enums.ColorDropdownText;
-import Homework.hw5.ex1.hw4ex1WithAllureAnnotations.Enums.NatureElements;
-import Homework.hw5.ex1.hw4ex1WithAllureAnnotations.Enums.RadioButtonMetals;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ColorDropdownText;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.NatureElements;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.RadioButtonMetals;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
-import org.testng.annotations.Listeners;
 
 import static com.codeborne.selenide.Condition.*;
 
-@Listeners(Listener.class)
+//@Listeners(Listener.class)
 public class DifferentElementsPage {
     @FindBy(css = "input[type='checkbox']")
     private ElementsCollection checkboxes;

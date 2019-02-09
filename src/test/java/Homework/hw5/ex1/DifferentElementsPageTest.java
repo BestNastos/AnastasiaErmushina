@@ -1,24 +1,26 @@
 package Homework.hw5.ex1;
 
-import Homework.hw4.ex1.DifferentElementsPage;
-import Homework.hw4.ex1.Enums.ServiceSubmenu;
-import Homework.hw4.ex1.HomePage;
-import Homework.hw4.ex1.SelenideBaseHomework;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.DifferentElementsPage;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ServiceSubmenu;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.HomePage;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.SelenideBaseHomework;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static Homework.hw4.ex1.Enums.ColorDropdownText.YELLOW;
-import static Homework.hw4.ex1.Enums.HomePageInfo.HOME_PAGE_TITLE;
-import static Homework.hw4.ex1.Enums.HomePageInfo.URL;
-import static Homework.hw4.ex1.Enums.NatureElements.WATER;
-import static Homework.hw4.ex1.Enums.NatureElements.WIND;
-import static Homework.hw4.ex1.Enums.RadioButtonMetals.SELEN;
-import static Homework.hw4.ex1.Enums.WebUser.PITER;
+import static Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ColorDropdownText.YELLOW;
+import static Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.HomePageInfo.HOME_PAGE_TITLE;
+import static Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.NatureElements.WATER;
+import static Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.NatureElements.WIND;
+import static Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.RadioButtonMetals.SELEN;
+import static Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.WebUser.PITER;
+import static Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.HomePageInfo.URL;
 import static com.codeborne.selenide.Selenide.*;
 
+@Listeners(Listener.class)
 @Feature("Different Elements Page Interface")
 public class DifferentElementsPageTest extends SelenideBaseHomework {
     private DifferentElementsPage differentElementsPage;

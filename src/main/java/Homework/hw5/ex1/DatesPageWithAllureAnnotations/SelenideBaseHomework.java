@@ -1,4 +1,4 @@
-package Homework.hw5.ex1.hw4ex2WithAllureAnnotations;
+package Homework.hw5.ex1.DatesPageWithAllureAnnotations;
 
 import com.codeborne.selenide.Configuration;
 import org.testng.annotations.BeforeSuite;

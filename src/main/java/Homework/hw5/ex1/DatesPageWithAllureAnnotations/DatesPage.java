@@ -1,17 +1,14 @@
-package Homework.hw5.ex1.hw4ex2WithAllureAnnotations;
+package Homework.hw5.ex1.DatesPageWithAllureAnnotations;
 
-import Homework.hw5.ex1.Listener;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.testng.annotations.Listeners;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
-@Listeners(Listener.class)
 public class DatesPage {
 
     @FindBy(css = "div[aria-disabled='false'] > a")

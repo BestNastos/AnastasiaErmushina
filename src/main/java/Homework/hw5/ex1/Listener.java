@@ -13,12 +13,17 @@ public class Listener extends TestListenerAdapter {
 
     @Attachment(value = "Attachment: {0}", type = "image/png")
     public byte[] printScreen() {
+        System.out.println("printScreen method started");
         byte[] array = {1};
         try {
             return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
         } catch (WebDriverException e) {
+            System.out.println("printScreen method WebDriverException");
+
             e.printStackTrace();
         }
+        System.out.println("printScreen method ended");
+
         return array;
     }
 
