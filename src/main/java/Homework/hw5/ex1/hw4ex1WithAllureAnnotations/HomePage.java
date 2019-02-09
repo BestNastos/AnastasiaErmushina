@@ -1,16 +1,20 @@
-package Homework.hw4.ex1;
+package Homework.hw5.ex1.hw4ex1WithAllureAnnotations;
 
-import Homework.hw4.ex1.Enums.HomePageInfo;
-import Homework.hw4.ex1.Enums.ServiceSubmenu;
-import Homework.hw4.ex1.Enums.WebUser;
+import Homework.hw5.ex1.Listener;
+import Homework.hw5.ex1.hw4ex1WithAllureAnnotations.Enums.HomePageInfo;
+import Homework.hw5.ex1.hw4ex1WithAllureAnnotations.Enums.ServiceSubmenu;
+import Homework.hw5.ex1.hw4ex1WithAllureAnnotations.Enums.WebUser;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.Listeners;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
+@Listeners(Listener.class)
 public class HomePage {
 
     @FindBy(css = "[id='user-icon']")
@@ -40,10 +44,12 @@ public class HomePage {
     @FindBy(css = "ul[class='sub'] > li")
     private ElementsCollection leftSideServiceOptions;
 
+    @Step("Checking if title of 'Home Page' is correct")
     public void checkTitle(HomePageInfo title) {
         assertEquals(getWebDriver().getTitle(), title.toString());
     }
 
+    @Step("Logging in as 'PITER CHAILOVSKII'")
     public void login(WebUser user) {
         profileButton.click();
         loginBox.sendKeys(user.login);
@@ -51,10 +57,12 @@ public class HomePage {
         submitButton.click();
     }
 
+    @Step("Checking if username at the top right corner is correct after logging in")
     public void checkIfUsernameIsCorrect(WebUser user) {
         usernameElement.shouldHave(text(user.name));
     }
 
+    @Step("Checking if 'Service' dropdown from the header contains options")
     public void checkServiceHeaderOptions(ServiceSubmenu[] dropdownElements) {
         headerService.click();
         for (int i = 0; i < dropdownElements.length; i++) {
@@ -63,6 +71,7 @@ public class HomePage {
         }
     }
 
+    @Step("Checking if 'Service' dropdown from the left section contains options")
     public void checkServiceLeftSectionOptions(ServiceSubmenu[] dropdownElements) {
         leftSideService.click();
         for (int i = 0; i < dropdownElements.length; i++) {
@@ -71,6 +80,7 @@ public class HomePage {
         }
     }
 
+    @Step("Clicking on 'Different Elements' from the header 'Service' dropdown menu")
     public void openDifferentElementsPage() {
         headerService.click();
         headerServiceOptions.get(6).click();

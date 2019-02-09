@@ -1,16 +1,19 @@
-package Homework.hw4.ex1;
+package Homework.hw5.ex1.hw4ex2WithAllureAnnotations;
 
-import Homework.hw4.ex1.Enums.HomePageInfo;
-import Homework.hw4.ex1.Enums.ServiceSubmenu;
-import Homework.hw4.ex1.Enums.WebUser;
+import Homework.hw5.ex1.Listener;
+import Homework.hw5.ex1.hw4ex2WithAllureAnnotations.Enums.HomePageInfo;
+import Homework.hw5.ex1.hw4ex2WithAllureAnnotations.Enums.WebUser;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.Listeners;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
+@Listeners(Listener.class)
 public class HomePage {
 
     @FindBy(css = "[id='user-icon']")
@@ -34,16 +37,12 @@ public class HomePage {
     @FindBy(css = "ul[class='dropdown-menu'] > li")
     private ElementsCollection headerServiceOptions;
 
-    @FindBy(css = "li[class='menu-title'] > a[ui='label']")
-    private SelenideElement leftSideService;
-
-    @FindBy(css = "ul[class='sub'] > li")
-    private ElementsCollection leftSideServiceOptions;
-
+    @Step("Checking if title of 'Home Page' is correct")
     public void checkTitle(HomePageInfo title) {
         assertEquals(getWebDriver().getTitle(), title.toString());
     }
 
+    @Step("Logging in as 'PITER CHAILOVSKII'")
     public void login(WebUser user) {
         profileButton.click();
         loginBox.sendKeys(user.login);
@@ -51,28 +50,14 @@ public class HomePage {
         submitButton.click();
     }
 
+    @Step("Checking if username at the top right corner is correct after logging in")
     public void checkIfUsernameIsCorrect(WebUser user) {
         usernameElement.shouldHave(text(user.name));
     }
 
-    public void checkServiceHeaderOptions(ServiceSubmenu[] dropdownElements) {
+    @Step("Clicking on 'Dates' from the header 'Service' dropdown menu")
+    public void openDatesPage() {
         headerService.click();
-        for (int i = 0; i < dropdownElements.length; i++) {
-            headerServiceOptions.get(i).exists();
-            headerServiceOptions.get(i).shouldHave(text(dropdownElements[i].toString()));
-        }
-    }
-
-    public void checkServiceLeftSectionOptions(ServiceSubmenu[] dropdownElements) {
-        leftSideService.click();
-        for (int i = 0; i < dropdownElements.length; i++) {
-            leftSideServiceOptions.get(i).exists();
-            leftSideServiceOptions.get(i).shouldHave(text(dropdownElements[i].toString()));
-        }
-    }
-
-    public void openDifferentElementsPage() {
-        headerService.click();
-        headerServiceOptions.get(6).click();
+        headerServiceOptions.get(1).click();
     }
 }
