@@ -6,7 +6,7 @@
     </listeners>
     <test name="Jenkins Allure">
         <packages>
-            <package name="Homework.hw5.ex1"/>
+            <package name="Homework.hw5.ex2"/>
         </packages>
     </test>
 

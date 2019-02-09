@@ -1,9 +1,10 @@
-package Homework.hw5.ex1;
+package Homework.hw5.ex2;
 
 import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.DifferentElementsPage;
 import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ServiceSubmenu;
 import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.HomePage;
 import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.SelenideBaseHomework;
+import Homework.hw5.ex1.Listener;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
@@ -21,7 +22,7 @@ import static Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.HomeP
 import static com.codeborne.selenide.Selenide.*;
 
 @Listeners(Listener.class)
-@Feature("Different Elements Page Interface")
+@Feature("Different Elements Page Feature")
 public class DifferentElementsPageTest extends SelenideBaseHomework {
     private DifferentElementsPage differentElementsPage;
     private HomePage homePage;
@@ -39,7 +40,7 @@ public class DifferentElementsPageTest extends SelenideBaseHomework {
         close();
     }
 
-    @Story("Different Elements Page Interface Testing Story")
+    @Story("Different Elements Page Story")
     @Test
     public void differentElementsPageTest() {
         //2 Assert Browser title

@@ -1,8 +1,9 @@
-package Homework.hw5.ex1;
+package Homework.hw5.ex2;
 
-import Homework.hw5.ex1.DatesPageWithAllureAnnotations.HomePage;
 import Homework.hw5.ex1.DatesPageWithAllureAnnotations.DatesPage;
+import Homework.hw5.ex1.DatesPageWithAllureAnnotations.HomePage;
 import Homework.hw5.ex1.DatesPageWithAllureAnnotations.SelenideBaseHomework;
+import Homework.hw5.ex1.Listener;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
@@ -10,14 +11,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static Homework.hw5.ex1.DatesPageWithAllureAnnotations.Enums.HomePageInfo.URL;
 import static Homework.hw5.ex1.DatesPageWithAllureAnnotations.Enums.HomePageInfo.HOME_PAGE_TITLE;
+import static Homework.hw5.ex1.DatesPageWithAllureAnnotations.Enums.HomePageInfo.URL;
 import static Homework.hw5.ex1.DatesPageWithAllureAnnotations.Enums.WebUser.PITER;
 import static com.codeborne.selenide.Selenide.*;
 
 @Listeners(Listener.class)
-@Feature("Dates Page Interfce")
-public class DatesPageTest extends SelenideBaseHomework {
+@Feature("Dates Page Feature Failed")
+public class DatesPageTestFailed extends SelenideBaseHomework {
     private DatesPage datesPage;
     private HomePage homePage;
 
@@ -34,9 +35,9 @@ public class DatesPageTest extends SelenideBaseHomework {
         close();
     }
 
-    @Story("Dates Page Interface Testing Story")
+    @Story("Dates Page Story Failed")
     @Test
-    public void datesPageTest() {
+    public void datesPageTestFailed() {
         //2 Assert Browser title
         homePage.checkTitle(HOME_PAGE_TITLE);
 
@@ -54,7 +55,7 @@ public class DatesPageTest extends SelenideBaseHomework {
         datesPage.setRange(0, 100);
 
         //7 Assert that for "From" and "To" sliders there are logs rows with corresponding values
-        datesPage.checkLogForSliders(0, 100);
+        datesPage.checkLogForSliders(0, 7);
 
         //8 Using drag-and-drop set Range sliders.
         // left sliders - the most left position, right slider - the most left position.
