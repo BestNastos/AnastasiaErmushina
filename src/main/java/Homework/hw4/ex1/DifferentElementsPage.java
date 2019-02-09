@@ -65,11 +65,11 @@ public class DifferentElementsPage {
         leftSection.shouldBe(visible);
     }
 
-    public void selectNatureElements(NatureElements water, NatureElements wind) {
-        checkboxLabels.get(water.ordinal()).shouldHave(text(water.toString())).click();
-        checkboxes.get(water.ordinal()).shouldBe(checked);
-        checkboxLabels.get(wind.ordinal()).shouldHave(text(wind.toString())).click();
-        checkboxes.get(wind.ordinal()).shouldBe(checked);
+    public void selectNatureElements(NatureElements... elements) {
+        for (NatureElements element : elements) {
+            checkboxLabels.get(element.ordinal()).shouldHave(text(element.toString())).click();
+            checkboxes.get(element.ordinal()).shouldBe(checked);
+        }
     }
 
     public void selectMetalRadiobutton(RadioButtonMetals expectedText) {
@@ -99,7 +99,7 @@ public class DifferentElementsPage {
         }
     }
 
-    public void checkLogForAllNatureElements(NatureElements element, boolean isSelected) {
+    public void checkLogForNatureElements(NatureElements element, boolean isSelected) {
         log.findBy(text(element.toString())).shouldHave(text(": condition changed to " + isSelected));
     }
 }

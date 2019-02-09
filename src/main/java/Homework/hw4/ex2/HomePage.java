@@ -33,11 +33,6 @@ public class HomePage {
     @FindBy(css = "ul[class='dropdown-menu'] > li")
     private ElementsCollection headerServiceOptions;
 
-    public void openDatesPage() {
-        headerService.click();
-        headerServiceOptions.get(1).click();
-    }
-
     public void checkTitle(HomePageInfo title) {
         assertEquals(getWebDriver().getTitle(), title.toString());
     }
@@ -51,5 +46,10 @@ public class HomePage {
 
     public void checkIfUsernameIsCorrect(WebUser user) {
         usernameElement.shouldHave(text(user.name));
+    }
+
+    public void openDatesPage() {
+        headerService.click();
+        headerServiceOptions.get(1).click();
     }
 }

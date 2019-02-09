@@ -63,8 +63,8 @@ public class DifferentElementsPageTest extends SelenideBaseHomework {
 
         //12 Assert that for each checkbox there is an individual log row
         // and value is corresponded to the status of checkbox.
-        differentElementsPage.checkLogForAllNatureElements(WATER, true);
-        differentElementsPage.checkLogForAllNatureElements(WIND, true);
+        differentElementsPage.checkLogForNatureElements(WATER, true);
+        differentElementsPage.checkLogForNatureElements(WIND, true);
 
         //13 Select radio
         differentElementsPage.selectMetalRadiobutton(SELEN);
@@ -85,7 +85,7 @@ public class DifferentElementsPageTest extends SelenideBaseHomework {
 
         //18 Assert that for each checkbox there is an individual log row and
         // value is corresponded to the status of checkbox.
-        differentElementsPage.checkLogForAllNatureElements(WATER, false);
-        differentElementsPage.checkLogForAllNatureElements(WIND, false);
+        differentElementsPage.checkLogForNatureElements(WATER, false);
+        differentElementsPage.checkLogForNatureElements(WIND, false);
     }
 }
