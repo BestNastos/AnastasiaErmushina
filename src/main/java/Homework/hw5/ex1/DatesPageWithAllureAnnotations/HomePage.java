@@ -11,7 +11,6 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
-//@Listeners(Listener.class)
 public class HomePage {
 
     @FindBy(css = "[id='user-icon']")

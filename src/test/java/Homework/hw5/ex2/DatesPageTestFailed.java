@@ -17,7 +17,7 @@ import static Homework.hw5.ex1.DatesPageWithAllureAnnotations.Enums.WebUser.PITE
 import static com.codeborne.selenide.Selenide.*;
 
 @Listeners(Listener.class)
-@Feature("Dates Page Feature Failed")
+@Feature("Proper UI display")
 public class DatesPageTestFailed extends SelenideBaseHomework {
     private DatesPage datesPage;
     private HomePage homePage;
@@ -35,7 +35,7 @@ public class DatesPageTestFailed extends SelenideBaseHomework {
         close();
     }
 
-    @Story("Dates Page Story Failed")
+    @Story("Dates Page Story (Failed)")
     @Test
     public void datesPageTestFailed() {
         //2 Assert Browser title

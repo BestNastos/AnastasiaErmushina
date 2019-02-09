@@ -10,7 +10,6 @@ import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Condition.*;
 
-//@Listeners(Listener.class)
 public class DifferentElementsPage {
     @FindBy(css = "input[type='checkbox']")
     private ElementsCollection checkboxes;
@@ -73,11 +72,11 @@ public class DifferentElementsPage {
     }
 
     @Step("Selecting checkboxes with forces of nature")
-    public void selectNatureElements(NatureElements water, NatureElements wind) {
-        checkboxLabels.get(water.ordinal()).shouldHave(text(water.toString())).click();
-        checkboxes.get(water.ordinal()).shouldBe(checked);
-        checkboxLabels.get(wind.ordinal()).shouldHave(text(wind.toString())).click();
-        checkboxes.get(wind.ordinal()).shouldBe(checked);
+    public void selectNatureElements(NatureElements ... elements) {
+        for (NatureElements element : elements) {
+            checkboxLabels.get(element.ordinal()).shouldHave(text(element.toString())).click();
+            checkboxes.get(element.ordinal()).shouldBe(checked);
+        }
     }
 
     @Step("Selecting a radiobutton with metals")
@@ -113,7 +112,7 @@ public class DifferentElementsPage {
     }
 
     @Step("Checking if log works for checkboxes with forces of nature")
-    public void checkLogForAllNatureElements(NatureElements element, boolean isSelected) {
+    public void checkLogForNatureElements(NatureElements element, boolean isSelected) {
         log.findBy(text(element.toString())).shouldHave(text(": condition changed to " + isSelected));
     }
 }

@@ -17,7 +17,7 @@ import static Homework.hw5.ex1.DatesPageWithAllureAnnotations.Enums.WebUser.PITE
 import static com.codeborne.selenide.Selenide.*;
 
 @Listeners(Listener.class)
-@Feature("Dates Page Feature")
+@Feature("Proper UI display")
 public class DatesPageTest extends SelenideBaseHomework {
     private DatesPage datesPage;
     private HomePage homePage;
