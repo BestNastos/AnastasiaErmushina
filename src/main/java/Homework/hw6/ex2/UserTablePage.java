@@ -1,8 +1,12 @@
 package Homework.hw6.ex2;
 
+import Homework.hw6.ex2.Enums.UserTablePageInfo;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static org.testng.Assert.assertEquals;
 
 public class UserTablePage {
 
@@ -26,5 +30,9 @@ public class UserTablePage {
 
     @FindBy(css = "table[id='user-table']")
     private SelenideElement userTable;
+
+    public void checkTitle(UserTablePageInfo title) {
+        assertEquals(getWebDriver().getTitle(), title.toString());
+    }
 
 }

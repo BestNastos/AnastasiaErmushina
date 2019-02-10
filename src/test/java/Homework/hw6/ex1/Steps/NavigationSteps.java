@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class NavigationSteps {
 
         @Given("^I open site$")
-        public void iOpenEpamSIte(){
+        public void iOpenEpamSite(){
             open(HomePageInfo.URL.toString());
         }
 }

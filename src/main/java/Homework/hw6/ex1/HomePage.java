@@ -54,7 +54,6 @@ public class HomePage {
     @FindBy(css = "p.main-txt.text-center")
     private SelenideElement description;
 
-
     public void checkTitle(HomePageInfo title) {
         assertEquals(getWebDriver().getTitle(), title.toString());
     }

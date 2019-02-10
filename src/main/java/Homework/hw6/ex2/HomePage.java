@@ -32,8 +32,11 @@ public class HomePage {
         submitButton.click();
     }
 
-    public void openUserTablePage() {
+    public void openServiceMenu(){
         headerService.click();
+    }
+
+    public void openUserTablePage() {
         headerServiceOptions.get(4).click();
     }
 }
