@@ -8,8 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static com.codeborne.selenide.Condition.matchesText;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
@@ -47,5 +46,40 @@ public class UserTablePage {
             usernames.get(i).shouldHave(text(table.get(i + 1).get(1)));
 //            descriptionTexts.get(i).shouldHave(matchesText(table.get(i + 1).get(2)));
         }
+    }
+
+    public void checkNumberTypeDropdowns(){
+        for (int i = 0; i < numbers.size() ; i++) {
+            numbers.get(i).shouldBe(visible);
+            typeDropdowns.get(i).shouldBe(visible);
+        }
+    }
+
+    public void checkUsernames(){
+        for (SelenideElement username : usernames) {
+            username.shouldBe(visible);
+        }
+    }
+
+    public void checkDescriptionImages(){
+        for (SelenideElement descriptionImage : descriptionImages) {
+            descriptionImage.shouldBe(visible);
+        }
+    }
+
+    public void checkTextsUnderImages(){
+        for (SelenideElement descriptionText : descriptionTexts) {
+            descriptionText.shouldBe(visible);
+        }
+    }
+
+    public void checkVipCheckboxes(){
+        for (SelenideElement vipCheckbox : vipCheckboxes) {
+            vipCheckbox.shouldBe(visible);
+        }
+    }
+
+    public void selectVipBox(){
+    // make enums with usernames?
     }
 }

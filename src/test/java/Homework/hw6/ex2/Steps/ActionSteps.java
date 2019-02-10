@@ -25,4 +25,9 @@ public class ActionSteps {
         homePage.openUserTablePage();
     }
 
+    @When("I select 'vip' checkbox for \"Sergey Ivan\"")
+    public void iSelectVipCheckbox(){
+    // takes enum or string as a paramerer?
+    }
+
 }
