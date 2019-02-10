@@ -2,7 +2,7 @@ package Homework.hw6.ex2.Enums;
 
 public enum UserTablePageInfo {
 
-    TITLE("User Table");
+    USER_TABLE("User Table");
 
     String title;
 

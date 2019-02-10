@@ -3,8 +3,13 @@ package Homework.hw6.ex2;
 import Homework.hw6.ex2.Enums.UserTablePageInfo;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import cucumber.api.DataTable;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
+import static com.codeborne.selenide.Condition.matchesText;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
@@ -35,4 +40,12 @@ public class UserTablePage {
         assertEquals(getWebDriver().getTitle(), title.toString());
     }
 
+    public void checkUserTableContainsElements(DataTable dataTable){
+        List<List<String>> table = dataTable.raw();
+        for (int i = 0; i < table.size()-1 ; i++) {
+            numbers.get(i).shouldHave(text(table.get(i + 1).get(0)));
+            usernames.get(i).shouldHave(text(table.get(i + 1).get(1)));
+//            descriptionTexts.get(i).shouldHave(matchesText(table.get(i + 1).get(2)));
+        }
+    }
 }

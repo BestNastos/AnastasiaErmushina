@@ -15,7 +15,7 @@ public class AssertionSteps {
     private HomePage homePage = page(HomePage.class);
     private DifferentElementsPage diffElemPage = page(DifferentElementsPage.class);
 
-    @Then("The browser title should be '([^\"]*)'")
+    @Then("^The browser title should be '([^\"]*)'$")
     public void checkBrowserTitle(HomePageInfo browserTitle) {
         homePage.checkTitle(browserTitle);
     }
@@ -25,37 +25,37 @@ public class AssertionSteps {
         homePage.checkIfUsernameIsCorrect(expectedName);
     }
 
-    @And("Interface should have all the necessary elements")
+    @And("^Interface should have all the necessary elements$")
     public void checkInterface() {
         homePage.checkIfInterfaceIsProperlyDisplayed();
     }
 
-    @Then("Service dropdown menu in header displays following options")
+    @Then("^Service dropdown menu in header displays following options$")
     public void checkServiceOptionsInHeader(List<ServiceSubmenu> options) {
         homePage.checkServiceHeaderOptions(options);
     }
 
-    @Then("Service dropdown in left section displays following options")
+    @Then("^Service dropdown in left section displays following options$")
     public void checkServiceOptionsInLeftSection(List<ServiceSubmenu> options){
         homePage.checkServiceLeftSectionOptions(options);
     }
 
-    @Then("Interface on Different elements page contains all needed elements")
+    @Then("^Interface on Different elements page contains all needed elements$")
     public void interfaceShouldContainElements(){
         diffElemPage.checkInterface();
     }
 
-    @And("There is a Right section")
+    @And("^There is a Right section$")
     public void checkIfRightSectionIsThere(){
         diffElemPage.checkRightSectionDisplayed();
     }
 
-    @And("There is a Left section")
+    @And("^There is a Left section$")
     public void checkIfLeftSectionIsThere(){
         diffElemPage.checkLeftSectionDisplayed();
     }
 
-    @Then("For each checkbox there is a log row")
+    @Then("^For each checkbox there is a log row$")
     public void checkLogWorksForNatureElements(){
         diffElemPage.checkLogForNatureElements(WATER, true);
         diffElemPage.checkLogForNatureElements(WIND, true);

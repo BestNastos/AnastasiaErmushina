@@ -21,37 +21,37 @@ public class ActionSteps {
         homePage.login(user);
     }
 
-    @When("I click on Service subcategory in the header")
+    @When("^I click on Service subcategory in the header$")
     public void iOpenServiceMenuInHeader(){
         homePage.openServiceMenuInHeader();
     }
 
-    @When("I click on Service subcategory in the left section")
+    @When("^I click on Service subcategory in the left section$")
     public void iOpenServiceMenuInLeftSection(){
         homePage.openServiceMenuInLeftSection();
     }
 
-    @When("I open header menu Service -> Different Elements Page")
+    @When("^I open header menu Service -> Different Elements Page$")
     public void iOpenDifferentElementsPage(){
         homePage.openDifferentElementsPage();
     }
 
-    @When("I select checkboxes:")
+    @When("^I select checkboxes:$")
     public void iSelectNatureElements(List<NatureElements> elements){
         diffElemPage.selectNatureElements(elements);
     }
 
-    @When("I select '([^\"]*)' radio button")
+    @When("^I select '([^\"]*)' radio button$")
     public void selectARadioButton(RadioButtonMetals metal){
         diffElemPage.selectMetalRadiobutton(metal);
     }
 
-    @When("I select '([^\"]*)' from the color selection dropdown")
+    @When("^I select '([^\"]*)' from the color selection dropdown$")
     public void selectAColor(ColorDropdownText color){
         diffElemPage.selectColorDropdown(color);
     }
 
-    @When("I unselect checkboxes:")
+    @When("^I unselect checkboxes:$")
     public void unselectNatureElements(List<NatureElements> elements){
         diffElemPage.unselectNatureElements(elements);
     }
