@@ -38,9 +38,6 @@ public class DifferentElementsPage {
     @FindBy(css = "ul.panel-body-list.logs > li")
     private ElementsCollection log;
 
-    @FindBy(css = "select.uui-form-element > option:nth-child(4)")
-    private ElementsCollection yellow;
-
     public void checkInterface() {
         checkboxes.shouldHaveSize(4);
         for (SelenideElement checkbox : checkboxes) {
