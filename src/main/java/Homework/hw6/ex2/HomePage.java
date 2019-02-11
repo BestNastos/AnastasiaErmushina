@@ -1,6 +1,6 @@
 package Homework.hw6.ex2;
 
-import Homework.hw6.ex2.Enums.WebUser;
+import Homework.hw6.ex2.Enums.UserCredentials;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,7 +25,7 @@ public class HomePage {
     @FindBy(css = "ul[class='dropdown-menu'] > li")
     private ElementsCollection headerServiceOptions;
 
-    public void login(WebUser user) {
+    public void login(UserCredentials user) {
         profileButton.click();
         loginBox.sendKeys(user.login);
         passwordBox.sendKeys(user.password);
