@@ -13,23 +13,28 @@ public class DatesPage {
     @FindBy(css = "div[aria-disabled='false'] > a")
     private ElementsCollection range2;
 
+    // TODO This locator can be improved
     @FindBy(css = "div[class='col-sm-5'] > div[class~='ui-corner-all']")
     private SelenideElement slider;
 
     @FindBy(css = "ul.panel-body-list.logs > li")
     private ElementsCollection log;
 
+    // TODO You should work with both slider's circles
     public void setRange(int from, int to) {
         double width = slider.getSize().getWidth();
-        double percent = width / 100;
+        double percent = width / 100.0;
         setHandle(0, -(int) width);
         setHandle(1, (int) width);
         double offset;
+        // TODO It is completely prohibited to make switch-case in this way, just imagine about other numbers...
         switch (from) {
             case 0:
                 offset = -percent;
                 break;
             case 30:
+                // TODO Why 1.5 ? What is the "magic number" ?
+                // TODO Try to work with current slider value, maybe it will be better
                 offset = percent * from - 1.5 * percent;
                 break;
             default:
