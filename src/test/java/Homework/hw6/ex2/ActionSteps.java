@@ -13,29 +13,29 @@ public class ActionSteps {
     private HomePage homePage = page(HomePage.class);
     private UserTablePage userTablePage = page(UserTablePage.class);
 
-    @And("^I login as user '([^\"]*)'$")
-    public void iLogin(UserCredentials user) {
-        homePage.login(user);
-    }
+//    @And("^I login as user '([^\"]*)'$")
+//    public void iLogin(UserCredentials user) {
+//        homePage.login(user);
+//    }
+//
+//    @When("^I click on 'Service' button in Header$")
+//    public void iClickOnService() {
+//        homePage.openServiceMenu();
+//    }
+//
+//    @And("^I click on 'User Table' button in Service dropdown$")
+//    public void iClickOnUserTable() {
+//        homePage.openUserTablePage();
+//    }
 
-    @When("^I click on 'Service' button in Header$")
-    public void iClickOnService() {
-        homePage.openServiceMenu();
-    }
-
-    @And("^I click on 'User Table' button in Service dropdown$")
-    public void iClickOnUserTable() {
-        homePage.openUserTablePage();
-    }
-
-    @When("^I select 'vip' checkbox for '([^\"]*)'$")
-    public void iSelectVipCheckbox(TableUsername name) {
-        userTablePage.selectVipBox(name);
-    }
-
-    @When("^I click on dropdown in column Type for user '([^\"]*)'$")
-    public void iClickOnColumnTypeForUser(TableUsername name) {
-        userTablePage.openDropdownColumnTypeForUser(name);
-    }
+//    @When("^I select 'vip' checkbox for '([^\"]*)'$")
+//    public void iSelectVipCheckbox(TableUsername name) {
+//        userTablePage.selectVipBox(name);
+//    }
+//
+//    @When("^I click on dropdown in column Type for user '([^\"]*)'$")
+//    public void iClickOnColumnTypeForUser(TableUsername name) {
+//        userTablePage.openDropdownColumnTypeForUser(name);
+//    }
 
 }
