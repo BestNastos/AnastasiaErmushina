@@ -20,7 +20,7 @@ public class DatesPage {
     @FindBy(css = "ul.panel-body-list.logs > li")
     private ElementsCollection log;
 
-    @Step("Setting range using slider handles")
+    @Step("Setting range using slider handles {0} {1}")
     public void setRange(int from, int to) {
         double width = slider.getSize().getWidth();
         double percent = width / 100;
