@@ -1,3 +1,4 @@
+@DifferentElementsInterface
 Feature: Different Elements Page Test
 
   Scenario: Interface testing

@@ -1,4 +1,5 @@
-Feature: Use Table Test
+@UserTableInterface
+Feature: User Table Test
 
   Scenario: User Table Page test
 
