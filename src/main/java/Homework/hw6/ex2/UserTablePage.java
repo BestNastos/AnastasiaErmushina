@@ -49,7 +49,7 @@ public class UserTablePage {
         for (int i = 0; i < table.size()-1 ; i++) {
             numbers.get(i).shouldHave(text(table.get(i + 1).get(0)));
             usernames.get(i).shouldHave(text(table.get(i + 1).get(1)));
-//            descriptionTexts.get(i).shouldHave(matchesText(table.get(i + 1).get(2)));
+            descriptionTexts.get(i).shouldHave(text(table.get(i + 1).get(2)));
         }
     }
 
