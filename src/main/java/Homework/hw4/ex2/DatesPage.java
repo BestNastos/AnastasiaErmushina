@@ -11,57 +11,61 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 public class DatesPage {
 
     @FindBy(css = "div[aria-disabled='false'] > a")
-    private ElementsCollection range2;
+    private ElementsCollection handles;
 
-    // TODO This locator can be improved
-    @FindBy(css = "div[class='col-sm-5'] > div[class~='ui-corner-all']")
+    @FindBy(css = "div.col-sm-5 > div.ui-corner-all")
     private SelenideElement slider;
 
     @FindBy(css = "ul.panel-body-list.logs > li")
     private ElementsCollection log;
 
-    // TODO You should work with both slider's circles
-    public void setRange(int from, int to) {
+    public void setRange1(int from, int to) {
         double width = slider.getSize().getWidth();
         double percent = width / 100.0;
-        setHandle(0, -(int) width);
-        setHandle(1, (int) width);
+        setHandleHelper(0, -(int) width);
+        setHandleHelper(1, (int) width);
         double offset;
-        // TODO It is completely prohibited to make switch-case in this way, just imagine about other numbers...
-        switch (from) {
-            case 0:
-                offset = -percent;
-                break;
-            case 30:
-                // TODO Why 1.5 ? What is the "magic number" ?
-                // TODO Try to work with current slider value, maybe it will be better
-                offset = percent * from - 1.5 * percent;
-                break;
-            default:
-                offset = width;
-                break;
+        if (from == 0) {
+            offset = -percent;
+        } else if (from == 30) {
+            offset = percent * from - 1.5 * percent;
+        } else if (from == 100) {
+            offset = width;
+        } else {
+            throw new IllegalArgumentException();
         }
-        setHandle(0, (int) offset);
-        switch (to) {
-            case 0:
-                offset = -width - percent;
-                break;
-            case 70:
-                offset = percent * (to - 100) - percent;
-                break;
-            default:
-                offset = percent;
-                break;
+        setHandleHelper(0, (int) offset);
+        if (to == 0) {
+            offset = -width - percent;
+        } else if (to == 70) {
+            offset = percent * (to - 100) - percent;
+        } else if (to == 100) {
+            offset = percent;
+        } else {
+            throw new IllegalArgumentException();
         }
-        setHandle(1, (int) offset);
+        setHandleHelper(1, (int) offset);
     }
 
-    private void setHandle(int handleNumber, int offset) {
+    private void setHandleHelper(int handleNumber, int offset) {
         new Actions(getWebDriver())
-                .clickAndHold(range2.get(handleNumber))
+                .clickAndHold(handles.get(handleNumber))
                 .moveByOffset(offset, 0)
                 .release()
                 .perform();
+    }
+
+    public void setRange2(int from, int to) {
+        setHandleHelper(0, offsetCalculatorForSetRange2(0, from));
+        System.out.println(log.get(0));
+        setHandleHelper(1, offsetCalculatorForSetRange2(1, to));
+        System.out.println(log.get(0));
+    }
+
+    private int offsetCalculatorForSetRange2(int elementIndex, int targetValue) {
+        int currentValue = Integer.valueOf(handles.get(elementIndex).innerText());
+        int difference = targetValue - currentValue;
+        return (int) (difference * slider.getSize().getWidth() / 100.0);
     }
 
     public void checkLogForSliders(int from, int to) {
