@@ -1,4 +1,4 @@
-package Homework.hw6.ex2.Steps;
+package Homework.hw6.ex2;
 
 import Homework.hw6.ex2.Enums.TableUsername;
 import Homework.hw6.ex2.Enums.UserCredentials;

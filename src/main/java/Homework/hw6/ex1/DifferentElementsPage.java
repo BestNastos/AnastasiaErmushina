@@ -45,20 +45,29 @@ public class DifferentElementsPage {
     @FindBy(css = "select.uui-form-element > option:nth-child(4)")
     private ElementsCollection yellow;
 
-    public void checkInterface() {
-        checkboxes.shouldHaveSize(4);
+    public void checkCheckboxesWithNatureElements(int number) {
         for (SelenideElement checkbox : checkboxes) {
             checkbox.should(exist);
         }
-        radiobuttons.shouldHaveSize(4);
+        checkboxes.shouldHaveSize(number);
+    }
+
+    public void checkRadioButtonsWithMetal(int number) {
         for (SelenideElement radiobutton : radiobuttons) {
             radiobutton.should(exist);
         }
+        radiobuttons.shouldHaveSize(number);
+    }
+
+    public void checkColorChoiceDropdown() {
         colorChoiceDropdown.should(exist);
-        buttons.shouldHaveSize(2);
+    }
+
+    public void checkButtonsExist(int number){
         for (SelenideElement button : buttons) {
             button.should(exist);
         }
+        buttons.shouldHaveSize(number);
     }
 
     public void checkRightSectionDisplayed() {

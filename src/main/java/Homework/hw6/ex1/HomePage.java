@@ -1,6 +1,7 @@
 package Homework.hw6.ex1;
 
 import Homework.hw6.ex1.Enums.HomePageInfo;
+//import Homework.hw6.ex1.Enums.NavigationItems;
 import Homework.hw6.ex1.Enums.ServiceSubmenu;
 import Homework.hw6.ex1.Enums.WebUser;
 import com.codeborne.selenide.ElementsCollection;
@@ -76,27 +77,33 @@ public class HomePage {
         }
     }
 
-    public void checkServiceLeftSectionOptions(List<ServiceSubmenu> dropdownElements) {
+    public void checkServiceLeftSideOptions(List<ServiceSubmenu> dropdownElements) {
         for (int i = 0; i < dropdownElements.size(); i++) {
             leftSideServiceOptions.get(i).exists();
             leftSideServiceOptions.get(i).shouldHave(text(dropdownElements.get(i).toString()));
         }
     }
 
-    public void openDifferentElementsPage() {
+    public void openDifferentElementsPage(ServiceSubmenu menuItem) {
         headerService.click();
-        headerServiceOptions.get(6).click();
+        headerServiceOptions.findBy(text(menuItem.toString())).click();
     }
 
-    public void checkIfInterfaceIsProperlyDisplayed(){
+    public void checkIfIconsExist(int number) {
         for (SelenideElement benefitIcon : benefitIcons) {
             benefitIcon.should(exist);
+            benefitIcons.shouldHaveSize(number);
         }
-        benefitIcons.shouldHaveSize(4);
+    }
+
+    public void checkIfTextsUnderIconsExist(int number) {
         for (SelenideElement textsUnderBenefitImage : textsUnderBenefitImages) {
             textsUnderBenefitImage.should(exist);
         }
-        textsUnderBenefitImages.shouldHaveSize(4);
+        textsUnderBenefitImages.shouldHaveSize(number);
+    }
+
+    public void checkIfHeadlineAndDescriptionExist(){
         headline.should(exist);
         description.should(exist);
     }

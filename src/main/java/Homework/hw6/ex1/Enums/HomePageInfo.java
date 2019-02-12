@@ -3,7 +3,7 @@ package Homework.hw6.ex1.Enums;
 public enum HomePageInfo {
 
     URL("https://epam.github.io/JDI/index.html"),
-    TITLE("Home Page");
+    HOME_PAGE("Home Page");
 
     private String value;
 

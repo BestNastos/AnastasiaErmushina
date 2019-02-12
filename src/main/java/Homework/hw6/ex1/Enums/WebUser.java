@@ -1,7 +1,7 @@
 package Homework.hw6.ex1.Enums;
 
 public enum WebUser {
-    PITER("epam", "1234", "PITER CHAILOVSKII");
+    PITER_CHAILOVSKII("epam", "1234", "PITER CHAILOVSKII");
 
     public String login;
     public String password;

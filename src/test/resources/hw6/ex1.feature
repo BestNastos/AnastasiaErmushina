@@ -2,11 +2,13 @@
 Feature: Different Elements Page Test
 
   Scenario: Interface testing
-    Given I open site
-    Then The browser title should be 'TITLE'
-    When I login as 'PITER'
-    Then User's name should be 'PITER'
-    And Interface should have all the necessary elements
+    Given I open 'URL'
+    Then Browser title should be 'HOME_PAGE'
+    When I login as 'PITER_CHAILOVSKII'
+    Then Username should be 'PITER_CHAILOVSKII'
+    And Home Page should have '4' benefit icons
+    And Home Page should have '4' texts under icons
+    And Home Page should have headline and description
     When I click on Service subcategory in the header
     Then Service dropdown menu in header displays following options
       | SUPPORT            |
@@ -27,11 +29,14 @@ Feature: Different Elements Page Test
       | TABLE_WITH_PAGES   |
       | DIFFERENT_ELEMENTS |
       | PERFORMANCE        |
-    When I open header menu Service -> Different Elements Page
-    Then Interface on Different elements page contains all needed elements
-    And There is a Right section
-    And There is a Left section
-    When I select checkboxes:
+    When I open header menu Service -> 'DIFFERENT_ELEMENTS' Page
+    Then Interface on Different elements page contains '4' checkboxes with nature elements
+    And Interface on Different elements page contains '4' radio buttons with metals
+    And Interface on Different elements page contains color choice dropdown
+    And Interface on Different elements page contains '2' buttons
+    And Different elements page has a Right section
+    And Different elements page has a Left section
+    When I select following checkboxes on Different elements page:
       | WATER |
       | WIND  |
     Then For each checkbox there is a log row
