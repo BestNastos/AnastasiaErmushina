@@ -57,9 +57,7 @@ public class DatesPage {
 
     public void setRange2(int from, int to) {
         setHandleHelper(0, offsetCalculatorForSetRange2(0, from));
-        System.out.println(log.get(0));
         setHandleHelper(1, offsetCalculatorForSetRange2(1, to));
-        System.out.println(log.get(0));
     }
 
     private int offsetCalculatorForSetRange2(int elementIndex, int targetValue) {
