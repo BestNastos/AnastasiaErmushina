@@ -5,6 +5,7 @@ import Homework.hw6.ex1.Enums.ForceOfNature;
 import Homework.hw6.ex1.Enums.Metal;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import cucumber.api.DataTable;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -116,7 +117,10 @@ public class DifferentElementsPage {
         }
     }
 
-    public void checkLogForForcesOfNature(ForceOfNature element, boolean isSelected) {
-        log.findBy(text(element.toString())).shouldHave(text(": condition changed to " + isSelected));
+    public void checkLogForForcesOfNature(DataTable table) {
+        List<List<String>> data = table.raw();
+        for (int i = 0; i < data.size(); i++) {
+            log.findBy(text(data.get(i).get(0))).shouldHave(text(data.get(i).get(1)));
+        }
     }
 }

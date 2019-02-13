@@ -39,7 +39,9 @@ Feature: Different Elements Page Test
     When I select following checkboxes with forces of nature on Different elements page:
       | WATER |
       | WIND  |
-    Then For each checkbox there is a log row
+    Then For each checkbox there is a log row with corresponding status
+      | WATER | true |
+      | WIND  | true |
     When I select 'SELEN' radio button
     Then There is a log raw for 'SELEN' radio button
     When I select 'YELLOW' from the color selection dropdown

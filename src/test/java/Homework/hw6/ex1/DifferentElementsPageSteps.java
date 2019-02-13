@@ -3,6 +3,7 @@ package Homework.hw6.ex1;
 import Homework.hw6.ex1.Enums.Color;
 import Homework.hw6.ex1.Enums.ForceOfNature;
 import Homework.hw6.ex1.Enums.Metal;
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -52,10 +53,9 @@ public class DifferentElementsPageSteps {
         diffElemPage.selectForceOfNature(elements);
     }
 
-    @Then("^For each checkbox there is a log row$")
-    public void logShouldWorkForForcesOfNature() {
-        diffElemPage.checkLogForForcesOfNature(WATER, true);
-        diffElemPage.checkLogForForcesOfNature(WIND, true);
+    @Then("^For each checkbox there is a log row with corresponding status$")
+    public void logShouldWorkForForcesOfNature(DataTable elements) {
+        diffElemPage.checkLogForForcesOfNature(elements);
     }
 
     @When("^I select '([^\"]*)' radio button$")
