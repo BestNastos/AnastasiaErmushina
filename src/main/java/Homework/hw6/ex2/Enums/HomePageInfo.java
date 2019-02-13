@@ -2,7 +2,7 @@ package Homework.hw6.ex2.Enums;
 
 public enum HomePageInfo {
 
-    URL("https://epam.github.io/JDI/index.html");
+    HOME_PAGE("https://epam.github.io/JDI/index.html");
 
     private String value;
 

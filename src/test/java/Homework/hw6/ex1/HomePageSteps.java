@@ -21,7 +21,7 @@ public class HomePageSteps {
     }
 
     @When("^I login as '([^\"]*)'$")
-    public void iLoginAs(WebUser user){
+    public void iLoginAs(WebUser user) {
         homePage.login(user);
     }
 
@@ -46,7 +46,7 @@ public class HomePageSteps {
     }
 
     @When("^I click on Service subcategory in the header$")
-    public void iOpenServiceMenuInHeader(){
+    public void iOpenServiceMenuInHeader() {
         homePage.openServiceMenuInHeader();
     }
 
@@ -56,17 +56,17 @@ public class HomePageSteps {
     }
 
     @When("^I click on Service subcategory in the left section$")
-    public void iOpenServiceMenuInLeftSection(){
+    public void iOpenServiceMenuInLeftSection() {
         homePage.openServiceMenuInLeftSection();
     }
 
     @Then("^Service dropdown in left section displays following options$")
-    public void leftSideServiceShouldHaveOptions(List<ServiceSubmenu> options){
+    public void leftSideServiceShouldHaveOptions(List<ServiceSubmenu> options) {
         homePage.checkServiceLeftSideOptions(options);
     }
 
     @When("^I open header menu Service -> '([^\"]*)' Page$")
-    public void iOpenDifferentElementsPage(ServiceSubmenu menuItem){
+    public void iOpenDifferentElementsPage(ServiceSubmenu menuItem) {
         homePage.openDifferentElementsPage(menuItem);
     }
 }

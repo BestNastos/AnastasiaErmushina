@@ -1,9 +1,12 @@
 package Homework.hw6.ex2;
 
 import Homework.hw6.ex2.Enums.UserCredentials;
+import Homework.hw6.ex2.Enums.UserTablePageInfo;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
+
+import static com.codeborne.selenide.Condition.text;
 
 public class HomePage {
 
@@ -22,7 +25,7 @@ public class HomePage {
     @FindBy(css = "li[class='dropdown']")
     private SelenideElement headerService;
 
-    @FindBy(css = "ul[class='dropdown-menu'] > li")
+    @FindBy(css = "ul.dropdown-menu > li")
     private ElementsCollection headerServiceOptions;
 
     public void login(UserCredentials user) {
@@ -36,7 +39,7 @@ public class HomePage {
         headerService.click();
     }
 
-    public void openUserTablePage() {
-        headerServiceOptions.get(4).click();
+    public void openUserTablePage(UserTablePageInfo option) {
+        headerServiceOptions.findBy(text(option.toString())).click();
     }
 }

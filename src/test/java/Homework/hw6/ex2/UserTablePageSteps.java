@@ -13,37 +13,36 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class UserTablePageSteps {
 
-    UserTablePage userTablePage = page(UserTablePage.class);
+    private UserTablePage userTablePage = page(UserTablePage.class);
 
     @Then("^'([^\"]*)' page is opened$")
     public void userTablePageIsOpened(UserTablePageInfo title) {
         userTablePage.checkTitle(title);
     }
 
-
-    @And("^6 NumberType Dropdowns are displayed on Users Table on User Table Page$")
-    public void sixNumberTypeDropdownsAreDisplayed() {
-        userTablePage.checkNumberTypeDropdowns();
+    @And("^'(\\d+)' NumberType Dropdowns are displayed on Users Table on User Table Page$")
+    public void numberTypeDropdownsAreDisplayed(int number) {
+        userTablePage.checkNumberTypeDropdowns(number);
     }
 
-    @And("^6 User names are displayed on Users Table on User Table Page$")
-    public void sixUsernamesAreDisplayed() {
-        userTablePage.checkUsernames();
+    @And("^'(\\d+)' User names are displayed on Users Table on User Table Page$")
+    public void usernamesAreDisplayed(int number) {
+        userTablePage.checkUsernames(number);
     }
 
-    @And("^6 Description images are displayed on Users Table on User Table Page$")
-    public void sixDescriptionImagesAreDisplayed() {
-        userTablePage.checkDescriptionImages();
+    @And("^'(\\d+)' Description images are displayed on Users Table on User Table Page$")
+    public void descriptionImagesAreDisplayed(int number) {
+        userTablePage.checkDescriptionImages(number);
     }
 
-    @And("^6 Description texts under images are displayed on Users Table on User Table Page$")
-    public void sixTextsUnderImagesAreDisplayed() {
-        userTablePage.checkTextsUnderImages();
+    @And("^'(\\d+)' Description texts under images are displayed on Users Table on User Table Page$")
+    public void textsUnderImagesAreDisplayed(int number) {
+        userTablePage.checkTextsUnderImages(number);
     }
 
-    @And("^6 checkboxes are displayed on Users Table on User Table Page$")
-    public void sixCheckboxesAreDisplayed() {
-        userTablePage.checkVipCheckboxes();
+    @And("^'(\\d+)' checkboxes are displayed on Users Table on User Table Page$")
+    public void checkboxesAreDisplayed(int number) {
+        userTablePage.checkVipCheckboxes(number);
     }
 
     @Then("^User table contains following values:$")

@@ -5,10 +5,10 @@ import cucumber.api.java.en.Given;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class NavigationSteps {
+public class SetUp {
 
-    @Given("^I am on 'Home Page'$")
-    public void iOpenEpamSite(){
-        open(HomePageInfo.URL.toString());
+    @Given("^I am on '([^\"]*)'$")
+    public void iOpenSite(HomePageInfo title) {
+        open(title.toString());
     }
 }

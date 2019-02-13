@@ -7,7 +7,7 @@ import cucumber.api.java.en.Given;
 import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.open;
 
-public class NavigationSteps {
+public class SetUp {
 
     @Given("^I open '([^\"]*)'$")
     public void iOpenURL(HomePageInfo url) {

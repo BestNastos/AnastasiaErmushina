@@ -1,20 +1,20 @@
 package Homework.hw6.ex1.Enums;
 
-public enum ColorDropdownText {
+public enum Color {
 
     RED("Red"),
     GREEN("Green"),
     BLUE("Blue"),
     YELLOW("Yellow");
 
-    private String colorText;
+    private String color;
 
-    ColorDropdownText(String colorText) {
-        this.colorText = colorText;
+    Color(String color) {
+        this.color = color;
     }
 
     @Override
     public String toString() {
-        return colorText;
+        return color;
     }
 }

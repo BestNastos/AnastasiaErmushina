@@ -10,7 +10,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
@@ -34,9 +33,6 @@ public class UserTablePage {
     @FindBy(css = "input[type='checkbox']")
     private ElementsCollection vipCheckboxes;
 
-    @FindBy(css = "table[id='user-table']")
-    private SelenideElement userTable;
-
     @FindBy(css = "ul.logs > li:first-child")
     private SelenideElement log;
 
@@ -53,35 +49,41 @@ public class UserTablePage {
         }
     }
 
-    public void checkNumberTypeDropdowns(){
-        for (int i = 0; i < numbers.size() ; i++) {
+    public void checkNumberTypeDropdowns(int number){
+        for (int i = 0; i < number ; i++) {
             numbers.get(i).shouldBe(visible);
             typeDropdowns.get(i).shouldBe(visible);
         }
+        numbers.shouldHaveSize(number);
+        typeDropdowns.shouldHaveSize(number);
     }
 
-    public void checkUsernames(){
+    public void checkUsernames(int number){
         for (SelenideElement username : usernames) {
             username.shouldBe(visible);
         }
+        usernames.shouldHaveSize(number);
     }
 
-    public void checkDescriptionImages(){
+    public void checkDescriptionImages(int number){
         for (SelenideElement descriptionImage : descriptionImages) {
             descriptionImage.shouldBe(visible);
         }
+        descriptionImages.shouldHaveSize(number);
     }
 
-    public void checkTextsUnderImages(){
+    public void checkTextsUnderImages(int number){
         for (SelenideElement descriptionText : descriptionTexts) {
             descriptionText.shouldBe(visible);
         }
+        descriptionTexts.shouldHaveSize(number);
     }
 
-    public void checkVipCheckboxes(){
+    public void checkVipCheckboxes(int number){
         for (SelenideElement vipCheckbox : vipCheckboxes) {
             vipCheckbox.shouldBe(visible);
         }
+        vipCheckboxes.shouldHaveSize(number);
     }
 
     public void selectVipBox(TableUsername name){
@@ -97,7 +99,6 @@ public class UserTablePage {
     }
 
     public void openDropdownColumnTypeForUser(TableUsername name){
-//     $x("//a[text()='" + name.toString() + "']/../../td/select");
         usernames.findBy(text(name.toString())).$x("../../td/select").click();
     }
 

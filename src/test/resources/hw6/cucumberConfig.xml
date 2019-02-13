@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Cucumber Gherkin Suite">
-    <test name="Cucumber Gherkin Tests">
+    <test name="Cucumber Gherkin Test">
 
         <classes>
             <class name="Homework.hw6.RunAcceptanceTest"/>

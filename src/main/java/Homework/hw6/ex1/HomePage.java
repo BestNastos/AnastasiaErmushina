@@ -1,7 +1,6 @@
 package Homework.hw6.ex1;
 
 import Homework.hw6.ex1.Enums.HomePageInfo;
-//import Homework.hw6.ex1.Enums.NavigationItems;
 import Homework.hw6.ex1.Enums.ServiceSubmenu;
 import Homework.hw6.ex1.Enums.WebUser;
 import com.codeborne.selenide.ElementsCollection;
@@ -34,10 +33,10 @@ public class HomePage {
     @FindBy(css = "li[class='dropdown']")
     private SelenideElement headerService;
 
-    @FindBy(css = "ul[class='dropdown-menu'] > li")
+    @FindBy(css = "ul.dropdown-menu > li")
     private ElementsCollection headerServiceOptions;
 
-    @FindBy(css = "li[class='menu-title'] > a[ui='label']")
+    @FindBy(css = "li.menu-title > a[ui='label']")
     private SelenideElement leftSideService;
 
     @FindBy(css = "ul[class='sub'] > li")
@@ -46,7 +45,7 @@ public class HomePage {
     @FindBy(css = "div.benefit-icon")
     private ElementsCollection benefitIcons;
 
-    @FindBy(css = "span[class='benefit-txt']")
+    @FindBy(css = "span.benefit-txt")
     private ElementsCollection textsUnderBenefitImages;
 
     @FindBy(css = "h3.main-title.text-center")
@@ -103,16 +102,16 @@ public class HomePage {
         textsUnderBenefitImages.shouldHaveSize(number);
     }
 
-    public void checkIfHeadlineAndDescriptionExist(){
+    public void checkIfHeadlineAndDescriptionExist() {
         headline.should(exist);
         description.should(exist);
     }
 
-    public void openServiceMenuInHeader(){
+    public void openServiceMenuInHeader() {
         headerService.click();
     }
 
-    public void openServiceMenuInLeftSection(){
+    public void openServiceMenuInLeftSection() {
         leftSideService.click();
     }
 }

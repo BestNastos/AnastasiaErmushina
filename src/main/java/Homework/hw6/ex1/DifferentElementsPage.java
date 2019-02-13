@@ -1,8 +1,8 @@
 package Homework.hw6.ex1;
 
-import Homework.hw6.ex1.Enums.ColorDropdownText;
-import Homework.hw6.ex1.Enums.NatureElements;
-import Homework.hw6.ex1.Enums.RadioButtonMetals;
+import Homework.hw6.ex1.Enums.Color;
+import Homework.hw6.ex1.Enums.ForceOfNature;
+import Homework.hw6.ex1.Enums.Metal;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,19 +15,19 @@ public class DifferentElementsPage {
     @FindBy(css = "input[type='checkbox']")
     private ElementsCollection checkboxes;
 
-    @FindBy(css = "label[class='label-checkbox']")
+    @FindBy(css = "label.label-checkbox")
     private ElementsCollection checkboxLabels;
 
     @FindBy(css = "input[type='radio']")
     private ElementsCollection radiobuttons;
 
-    @FindBy(css = "label[class='label-radio']")
+    @FindBy(css = "label.label-radio")
     private ElementsCollection radiobuttonLabels;
 
-    @FindBy(css = "select[class='uui-form-element']")
+    @FindBy(css = "select.uui-form-element")
     private SelenideElement colorChoiceDropdown;
 
-    @FindBy(css = "select[class='uui-form-element'] > option")
+    @FindBy(css = "select.uui-form-element > option")
     private ElementsCollection colors;
 
     @FindBy(css = "[class='uui-button']")
@@ -41,9 +41,6 @@ public class DifferentElementsPage {
 
     @FindBy(css = "ul.panel-body-list.logs > li")
     private ElementsCollection log;
-
-    @FindBy(css = "select.uui-form-element > option:nth-child(4)")
-    private ElementsCollection yellow;
 
     public void checkCheckboxesWithNatureElements(int number) {
         for (SelenideElement checkbox : checkboxes) {
@@ -63,7 +60,7 @@ public class DifferentElementsPage {
         colorChoiceDropdown.should(exist);
     }
 
-    public void checkButtonsExist(int number){
+    public void checkButtonsExist(int number) {
         for (SelenideElement button : buttons) {
             button.should(exist);
         }
@@ -78,48 +75,48 @@ public class DifferentElementsPage {
         leftSection.shouldBe(visible);
     }
 
-    public void selectNatureElements(List<NatureElements> elements) {
-        for (NatureElements element : elements) {
+    public void selectForceOfNature(List<ForceOfNature> elements) {
+        for (ForceOfNature element : elements) {
             checkboxLabels.get(element.ordinal()).shouldHave(text(element.toString())).click();
             checkboxes.get(element.ordinal()).shouldBe(checked);
         }
     }
 
-    public void selectMetalRadiobutton(RadioButtonMetals expectedText) {
+    public void selectMetalRadiobutton(Metal expectedText) {
         radiobuttonLabels.get(expectedText.ordinal()).shouldHave(text(expectedText.toString())).click();
         radiobuttons.get(expectedText.ordinal()).shouldBe(checked);
     }
 
-    public void checkLogForRadioButton(RadioButtonMetals expectedText) {
+    public void checkLogForRadioButton(Metal expectedText) {
         radiobuttonLabels.get(expectedText.ordinal()).shouldHave(text(expectedText.toString())).click();
         log.get(0).shouldHave(text(expectedText.toString()));
     }
 
-    public void selectColorDropdown(ColorDropdownText expectedColor) {
+    public void selectColorDropdown(Color expectedColor) {
         colorChoiceDropdown.click();
         colors.get(expectedColor.ordinal()).click();
         colors.get(expectedColor.ordinal()).shouldBe(checked);
     }
 
-    public void checkLogForColors(ColorDropdownText expectedColor) {
+    public void checkLogForColors(Color expectedColor) {
         log.get(0).shouldHave(text(expectedColor.toString()));
     }
 
-    public void unselectNatureElements(List<NatureElements> elements) {
-        for (NatureElements element : elements) {
+    public void unselectForcesOfNature(List<ForceOfNature> elements) {
+        for (ForceOfNature element : elements) {
             checkboxLabels.get(element.ordinal()).shouldHave(text(element.toString())).click();
             checkboxes.get(element.ordinal()).shouldNotBe(checked);
         }
     }
 
-    public void makeSureNatureElementsAreUnselected(List<NatureElements> elements){
-        for (NatureElements element : elements) {
+    public void assertForcesOfNatureAreUnselected(List<ForceOfNature> elements) {
+        for (ForceOfNature element : elements) {
             checkboxLabels.get(element.ordinal()).shouldHave(text(element.toString()));
             checkboxes.get(element.ordinal()).shouldNotBe(checked);
         }
     }
 
-    public void checkLogForNatureElements(NatureElements element, boolean isSelected) {
+    public void checkLogForForcesOfNature(ForceOfNature element, boolean isSelected) {
         log.findBy(text(element.toString())).shouldHave(text(": condition changed to " + isSelected));
     }
 }

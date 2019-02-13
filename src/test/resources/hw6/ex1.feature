@@ -30,13 +30,13 @@ Feature: Different Elements Page Test
       | DIFFERENT_ELEMENTS |
       | PERFORMANCE        |
     When I open header menu Service -> 'DIFFERENT_ELEMENTS' Page
-    Then Interface on Different elements page contains '4' checkboxes with nature elements
+    Then Interface on Different elements page contains '4' checkboxes with forces of nature
     And Interface on Different elements page contains '4' radio buttons with metals
     And Interface on Different elements page contains color choice dropdown
     And Interface on Different elements page contains '2' buttons
     And Different elements page has a Right section
     And Different elements page has a Left section
-    When I select following checkboxes on Different elements page:
+    When I select following checkboxes with forces of nature on Different elements page:
       | WATER |
       | WIND  |
     Then For each checkbox there is a log row

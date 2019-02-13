@@ -1,6 +1,6 @@
 package Homework.hw6.ex1.Enums;
 
-public enum NatureElements {
+public enum ForceOfNature {
     WATER("Water"),
     EARTH("Earth"),
     WIND("Wind"),
@@ -8,7 +8,7 @@ public enum NatureElements {
 
     private String txt;
 
-    NatureElements(String txt) {
+    ForceOfNature(String txt) {
         this.txt = txt;
     }
 

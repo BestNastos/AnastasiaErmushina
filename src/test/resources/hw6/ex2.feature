@@ -3,16 +3,16 @@ Feature: User Table Test
 
   Scenario: User Table Page test
 
-    Given I am on 'Home Page'
+    Given I am on 'HOME_PAGE'
     And I login as user 'PITER'
-    When I click on 'Service' button in Header
-    And I click on 'User Table' button in Service dropdown
+    When I click on Service button in Header
+    And I click on 'USER_TABLE' button in Service dropdown
     Then 'USER_TABLE' page is opened
-    And 6 NumberType Dropdowns are displayed on Users Table on User Table Page
-    And 6 User names are displayed on Users Table on User Table Page
-    And 6 Description images are displayed on Users Table on User Table Page
-    And 6 Description texts under images are displayed on Users Table on User Table Page
-    And 6 checkboxes are displayed on Users Table on User Table Page
+    And '6' NumberType Dropdowns are displayed on Users Table on User Table Page
+    And '6' User names are displayed on Users Table on User Table Page
+    And '6' Description images are displayed on Users Table on User Table Page
+    And '6' Description texts under images are displayed on Users Table on User Table Page
+    And '6' checkboxes are displayed on Users Table on User Table Page
     And User table contains following values:
       | Number | User             | Description                      |
       | 1      | Roman            | Wolverine                        |

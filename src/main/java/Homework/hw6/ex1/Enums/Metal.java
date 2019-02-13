@@ -1,6 +1,6 @@
 package Homework.hw6.ex1.Enums;
 
-public enum RadioButtonMetals {
+public enum Metal {
     GOLD("Gold"),
     SILVER("Silver"),
     BRONZE("Bronze"),
@@ -8,7 +8,7 @@ public enum RadioButtonMetals {
 
     private String text;
 
-    RadioButtonMetals(String text) {
+    Metal(String text) {
         this.text = text;
     }
 
