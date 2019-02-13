@@ -10,8 +10,6 @@ import cucumber.api.java.en.When;
 
 import java.util.List;
 
-import static Homework.hw6.ex1.Enums.ForceOfNature.WATER;
-import static Homework.hw6.ex1.Enums.ForceOfNature.WIND;
 import static com.codeborne.selenide.Selenide.page;
 
 public class DifferentElementsPageSteps {
