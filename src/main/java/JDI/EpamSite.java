@@ -1,7 +1,6 @@
-package JDI.lesson1;
+package JDI;
 
-import JDI.lesson1.pages.HomePageJDI;
-import com.epam.jdi.light.elements.composite.WebPage;
+import JDI.pages.HomePageJDI;
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 
