@@ -21,6 +21,9 @@ Feature: User Table Test
       | 4      | Helen Bennett    | Captain America some description |
       | 5      | Yoshi Tannamuri  | Cyclope some description         |
       | 6      | Giovanni Rovelli | Hulk some description            |
+    # we can create a class 'Superhero' (see lesson6), that will hold
+    # number, user and description (one table row)
+    # then the entire table will be just a list of Superheroes
     When I select 'vip' checkbox for 'SERGEY_IVAN'
     Then 1 log row has 'Vip: condition changed to true' text in log section
     When I click on dropdown in column Type for user 'ROMAN'
