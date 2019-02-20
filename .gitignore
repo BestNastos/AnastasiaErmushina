@@ -2,6 +2,8 @@
 *.war
 *.ear
 .idea
+.allure
+allure-results
 *.iml
 target
 build
