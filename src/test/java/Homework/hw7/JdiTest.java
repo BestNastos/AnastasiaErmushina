@@ -1,16 +1,20 @@
 package Homework.hw7;
 
 import Homework.hw7.pages.EpamWebsite;
+import Homework.hw7.pages.MetalsAndColorsPage;
 import com.epam.jdi.light.driver.WebDriverFactory;
+import com.epam.jdi.light.elements.complex.Droplist;
 import com.epam.jdi.light.ui.html.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import static Homework.hw7.Color.*;
 import static Homework.hw7.NavigationItems.*;
 import static Homework.hw7.Users.*;
 import static Homework.hw7.pages.EpamWebsite.*;
+import static Homework.hw7.pages.MetalsAndColorsPage.*;
 import static com.epam.jdi.light.elements.composite.WebPage.getCurrentPage;
 
 public class JdiTest {
@@ -32,11 +36,14 @@ public class JdiTest {
         homePage.login(PITER);
 
 
+
         //2 Open Metals & Colors page by Header menu
         homePage.openMenuItem(METALS_COLORS);
-        metalsAndColorsPage.checkOpened(); //TODO move deeper
+        metalsAndColorsPage.shouldBeOpened(); //TODO move deeper ?
 
         //3 Fill form Metals & Colors by data
+        colors.select(Red);
+
 
 
         //4 Submit form Metals & Colors
