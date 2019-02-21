@@ -9,4 +9,9 @@ public class Users {
     String login;
     String password;
     String fullName;
+
+    @Override
+    public String toString() {
+        return fullName;
+    }
 }
