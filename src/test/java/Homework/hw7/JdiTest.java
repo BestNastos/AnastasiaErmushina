@@ -1,21 +1,22 @@
 package Homework.hw7;
 
-import Homework.hw7.pages.JdiSite;
+import Homework.hw7.pages.EpamWebsite;
 import com.epam.jdi.light.driver.WebDriverFactory;
 import com.epam.jdi.light.ui.html.PageFactory;
-import com.google.common.base.Preconditions;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import static Homework.hw7.NavigationItems.*;
 import static Homework.hw7.Users.*;
-import static Homework.hw7.pages.JdiSite.*;
+import static Homework.hw7.pages.EpamWebsite.*;
+import static com.epam.jdi.light.elements.composite.WebPage.getCurrentPage;
 
 public class JdiTest {
     @BeforeSuite
     public void beforeSuite() {
-        PageFactory.initElements(JdiSite.class);
+        PageFactory.initElements(EpamWebsite.class);
         homePage.open();
     }
 
