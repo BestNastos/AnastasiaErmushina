@@ -16,7 +16,7 @@ public class SignInForm extends Form<Users> {
     private TextField password;
 
     @Css("[id='login-button']")
-    private Button submit;
+    public Button submit;//TODO private
 
     //login method not needed
 }
