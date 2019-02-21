@@ -11,14 +11,14 @@ import com.epam.jdi.light.ui.html.common.Icon;
 public class Header extends Section {
 
     @XPath("//a[text()='%s']") //a[text()='Metals & Colors'] //li:nth-child(4)
-    public WebList serviceMenu; //TODO WebPage or Link?
+    public WebList navigationBar; //TODO WebPage or Link?
 
     public SignInForm signInForm;
 
     @Css("[id='user-icon']")
-    public Icon profileButton;
+    public Icon profileIcon;
 
     @Css("[id='user-name']")
-    public UIElement usernameElement;
+    public UIElement usernameDisplayed;
 
 }
