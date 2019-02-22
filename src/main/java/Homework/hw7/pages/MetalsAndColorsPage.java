@@ -4,7 +4,9 @@ import com.epam.jdi.light.elements.complex.Droplist;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
+//import com.epam.jdi.light.ui.html.complex.Checklist;
 import com.epam.jdi.light.ui.html.complex.Checklist;
+import com.epam.jdi.light.ui.html.complex.MultiSelect;
 import com.epam.jdi.light.ui.html.complex.RadioButtons;
 
 public class MetalsAndColorsPage extends WebPage {
@@ -15,7 +17,7 @@ public class MetalsAndColorsPage extends WebPage {
     @Css("[id='even-selector']")
     public static RadioButtons evenNumbersSummary;
 
-    @Css("[id='elements-checklist']")
+    @Css("[id='elements-checklist'] > p")
     public static Checklist forcesOfNature;
 
     @JDropdown(root = "div[ui=dropdown]",
@@ -24,7 +26,16 @@ public class MetalsAndColorsPage extends WebPage {
             expand = ".caret")
     public static Droplist colors;
 
+    @JDropdown(root = "div[ui=combobox]",
+            value = "input",
+            list = "li",
+            expand = ".caret")
+    public static Droplist metals;
 
-
+    @JDropdown(root = "div[ui=droplist]",
+            value = "dropdown-menu",
+            list = "li",
+            expand = ".caret")
+    public static Droplist vegetables;
 
 }

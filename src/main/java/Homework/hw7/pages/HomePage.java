@@ -11,6 +11,8 @@ import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.ui.html.common.Icon;
 import org.testng.Assert;
 
+import static org.testng.Assert.*;
+
 public class HomePage extends WebPage {
 
     //    @FindBy(css = "[class~='m-l8']") //TODO goes where we init PO, video 10:11
@@ -25,12 +27,14 @@ public class HomePage extends WebPage {
 //    private UIElement usernameElement;
 
     public void login(Users user) {
-        header.profileButton.click();
-        header.signInForm.login(user);
-        Assert.assertEquals(header.usernameElement.getText(), user.toString());//TODO jdi analogy?
+        header.profileIcon.click();
+        header.signInForm.fill(user);
+        header.signInForm.verify(user);
+        header.signInForm.submit.click();
+        assertEquals(header.usernameDisplayed.getText(), user.toString());//TODO jdi analogy?
     }
 
     public void openMenuItem(NavigationItems item){ // TODO is it the right way?
-        header.serviceMenu.select(item.toString());
+        header.navigationBar.select(item.toString());
     }
 }
