@@ -1,4 +1,4 @@
-package Homework.hw7;
+package Homework.hw7.enums;
 
 public enum Metal {
 
