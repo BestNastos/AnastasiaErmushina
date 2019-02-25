@@ -16,5 +16,5 @@ public class DefaultFormData {
     public NatureForces[] forces = {Water, Fire};
     public Color color = Red;
     public Metal metal = Selen;
-    public Vegetable[] vegetables = {Vegetables, Cucumber, Tomato};
+    public Vegetable[] vegetables = {Cucumber, Tomato};
 }

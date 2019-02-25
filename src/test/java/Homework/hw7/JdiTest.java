@@ -4,9 +4,7 @@ import Homework.hw7.enums.DefaultFormData;
 import Homework.hw7.pages.EpamWebsite;
 import com.epam.jdi.light.driver.WebDriverFactory;
 import com.epam.jdi.light.ui.html.PageFactory;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static Homework.TRYmain.Default.DEFAULT_CONTACT;
 import static Homework.hw7.enums.NavigationItems.*;
@@ -15,13 +13,13 @@ import static Homework.hw7.pages.EpamWebsite.*;
 import static Homework.hw7_Form.DefaultData.DEFAULT_MC;
 
 public class JdiTest {
-    @BeforeSuite
+    @BeforeMethod
     public void beforeSuite() {
         PageFactory.initElements(EpamWebsite.class);
         homePage.open();
     }
 
-    @AfterSuite
+    @AfterMethod
     public void afterSuite() {
         WebDriverFactory.close();
     }
@@ -39,6 +37,7 @@ public class JdiTest {
         homePage.openMenuItem(METALS_COLORS);
         metalsAndColorsPage.shouldBeOpened();
         MCform.submit(DEFAULT_MC);
+        //TODO verify
     }
 
     @Test
@@ -58,6 +57,7 @@ public class JdiTest {
         metalsAndColorsPage.shouldBeOpened();
         DefaultFormData data = new DefaultFormData();
         metalsAndColorsPage.fillForm(data);
+        metalsAndColorsPage.submitForm();
+        metalsAndColorsPage.checkResult(data);
     }
-    //TODO verify
 }

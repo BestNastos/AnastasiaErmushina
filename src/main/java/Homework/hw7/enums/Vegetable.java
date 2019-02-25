@@ -1,5 +1,14 @@
 package Homework.hw7.enums;
 
 public enum Vegetable {
-    Cucumber, Tomato, Vegetables, Onion
+    Cucumber("Cucumber"),
+    Tomato("Tomato"),
+    Vegetables("Vegetables"),
+    Onion("Onion");
+
+    public final String value;
+
+    Vegetable(String value) {
+        this.value = value;
+    }
 }
