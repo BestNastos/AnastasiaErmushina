@@ -1,6 +1,6 @@
 package Homework.hw7.pages;
 
-import Homework.TRY222.MCform;
+import Homework.hw7_Form.MCform;
 import Homework.TRYmain.ContactForm;
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.Title;
@@ -13,7 +13,7 @@ public class EpamWebsite {
     public static HomePage homePage;
 
     @Url("metals-colors.html") @Title("Metal and Colors")
-//    public static MCform MCform;
+    public static MCform MCform;
     public static MetalsAndColorsPage metalsAndColorsPage;
 
     @Url("contacts.html") @Title("Contact Form")

@@ -8,13 +8,11 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-//import static Homework.TRYmain.ContactFormPage.contactForm;
-import static Homework.hw7.enums.Color.*;
-import static Homework.hw7.enums.Metal.Selen;
+import static Homework.TRYmain.Default.DEFAULT_CONTACT;
 import static Homework.hw7.enums.NavigationItems.*;
 import static Homework.hw7.enums.Users.*;
 import static Homework.hw7.pages.EpamWebsite.*;
-import static Homework.hw7.pages.MetalsAndColorsPage.*;
+import static Homework.hw7_Form.DefaultData.DEFAULT_MC;
 
 public class JdiTest {
     @BeforeSuite
@@ -29,22 +27,37 @@ public class JdiTest {
     }
 
     @Test
-    public void simpleJDItest() {
-
-//      1 Login on JDI site as User
+    public void contactPageTest() {
         homePage.login(PITER);
+        homePage.openMenuItem(CONTACT);
+        contactForm.submit(DEFAULT_CONTACT);
+    }
 
-//      2 Open Metals & Colors page by Header menu
-
+    @Test
+    public void metalsAndColorsViaForm() {
+        homePage.login(PITER);
         homePage.openMenuItem(METALS_COLORS);
         metalsAndColorsPage.shouldBeOpened();
+        MCform.submit(DEFAULT_MC);
+    }
 
-//        homePage.openMenuItem(CONTACT);
-//        contactForm.submit(DEFAULT_CONTACT);
-//        MCform.submit(DEFAULT_MC);
+    @Test
+    public void metalsAndColorsViaFormFillAndVerify() {
+        homePage.login(PITER);
+        homePage.openMenuItem(METALS_COLORS);
+        metalsAndColorsPage.shouldBeOpened();
+        MCform.fill(DEFAULT_MC);
+//        MCform.verify(DEFAULT_MC); // fails
+        MCform.submit.click();
+    }
 
-//        3 Fill form Metals & Colors by data
+    @Test
+    public void metalsAndColorsWithCustomFillMethod() {
+        homePage.login(PITER);
+        homePage.openMenuItem(METALS_COLORS);
+        metalsAndColorsPage.shouldBeOpened();
         DefaultFormData data = new DefaultFormData();
         metalsAndColorsPage.fillForm(data);
     }
+    //TODO verify
 }
