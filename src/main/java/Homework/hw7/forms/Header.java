@@ -7,13 +7,14 @@ import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.XPath;
 import com.epam.jdi.light.ui.html.common.Icon;
+import com.epam.jdi.light.ui.html.complex.Menu;
 
 public class Header extends Section {
 
     public SignInForm signInForm;
 
     @XPath("//a[text()='%s']")
-    public WebList navigationBar;
+    public Menu navigationBar;
 
     @Css("[id='user-icon']")
     public Icon profileIcon;

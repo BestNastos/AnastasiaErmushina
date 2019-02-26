@@ -1,9 +1,9 @@
-package Homework.hw7.enums;
+package Homework.hw7.utils;
 
 public enum NavigationItems {
     HOME("Home"),
     CONTACT("Contact form"),
-    SERVICE("\"Service \""),
+    SERVICE("Service"),
     METALS_COLORS("Metals & Colors");
 
     String value;

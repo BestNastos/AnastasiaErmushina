@@ -1,6 +1,6 @@
 package Homework.hw7.forms;
 
-import Homework.hw7.enums.Users;
+import Homework.hw7.utils.Users;
 import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.ui.html.common.Button;
