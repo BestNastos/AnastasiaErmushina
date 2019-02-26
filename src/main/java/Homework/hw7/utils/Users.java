@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 public class Users {
     String login;
     String password;
-    String fullName;
+    public String fullName;
 
     @Override
     public String toString() {
