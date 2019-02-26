@@ -10,5 +10,4 @@ public class FormData {
     public String color;
     public String metal;
     public String[] vegetables;
-
 }

@@ -49,7 +49,7 @@ public class MetalsAndColorsPage extends WebPage {
     @Css("#submit-button")
     public static Button submitButton;
 
-    public void enterData(FormData data){
+    public void enterData(FormData data) {
         oddNumbersSummary.select(data.oddNumber);
         evenNumbersSummary.select(data.evenNumber);
         for (String force : data.forces) {
@@ -63,11 +63,11 @@ public class MetalsAndColorsPage extends WebPage {
         }
     }
 
-    public void submitData(){
+    public void submitData() {
         submitButton.click();
     }
 
-    public void checkResult(FormData data){
+    public void checkResult(FormData data) {
         int sum = Integer.parseInt(data.oddNumber) + Integer.parseInt(data.evenNumber);
         assertEquals(results.get(0).getText(), "Summary: " + sum);
         assertEquals(results.get(1).getText(), "Elements: " + data.forces[0]

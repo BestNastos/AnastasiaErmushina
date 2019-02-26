@@ -1,7 +1,5 @@
 package Homework.hw7.pages;
 
-import Homework.hw7_Form.MCform;
-import Homework.TRYmain.ContactForm;
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.Title;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
@@ -9,9 +7,11 @@ import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 @JSite("https://epam.github.io/JDI/")
 public class EpamWebsite {
 
-    @Url("metals-colors.html") @Title("Metal and Colors")
+    @Url("metals-colors.html")
+    @Title("Metal and Colors")
     public static MetalsAndColorsPage metalsAndColorsPage;
 
-    @Url("index.html") @Title("Home Page")
+    @Url("index.html")
+    @Title("Home Page")
     public static HomePage homePage;
 }

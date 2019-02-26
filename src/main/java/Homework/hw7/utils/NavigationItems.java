@@ -13,7 +13,7 @@ public enum NavigationItems {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return value;
     }
 }
