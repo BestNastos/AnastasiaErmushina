@@ -16,9 +16,9 @@ public class Header extends Section {
     @XPath("//a[text()='%s']")
     public Menu navigationBar;
 
-    @Css("[id='user-icon']")
+    @Css("#user-icon")
     public Icon profileIcon;
 
-    @Css("[id='user-name']")
+    @Css("#user-name")
     public UIElement usernameDisplayed;
 }

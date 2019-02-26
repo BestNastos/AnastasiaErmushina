@@ -7,12 +7,12 @@ import com.epam.jdi.light.ui.html.common.Button;
 import com.epam.jdi.light.ui.html.common.TextField;
 
 public class SignInForm extends Form<Users> {
-    @Css("[id='name']")
+    @Css("#name")
     private TextField login;
 
-    @Css("[id='password']")
+    @Css("#password")
     private TextField password;
 
-    @Css("[id='login-button']")
+    @Css("#login-button")
     public Button submit;
 }

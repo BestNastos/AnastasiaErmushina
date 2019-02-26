@@ -5,8 +5,6 @@ import Homework.hw7.forms.Header;
 import com.epam.jdi.light.elements.complex.Droplist;
 import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.WebPage;
-import com.epam.jdi.light.elements.pageobjects.annotations.Title;
-import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import com.epam.jdi.light.elements.pageobjects.annotations.objects.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.ui.html.common.Button;
@@ -14,7 +12,6 @@ import com.epam.jdi.light.ui.html.complex.*;
 
 import static org.testng.Assert.*;
 
-@Url("metals-colors.html") @Title("Metal and Colors")
 public class MetalsAndColorsPage extends WebPage {
 
     public Header header;
@@ -22,13 +19,13 @@ public class MetalsAndColorsPage extends WebPage {
     @Css(".results > li")
     public static WebList results;
 
-    @Css("[id='odds-selector']")
+    @Css("#odds-selector")
     public static RadioButtons oddNumbersSummary;
 
-    @Css("[id='even-selector']")
+    @Css("#even-selector")
     public static RadioButtons evenNumbersSummary;
 
-    @Css("[id='elements-checklist'] > p > label")
+    @Css("#elements-checklist > p > label")
     public static WebList forcesOfNature;
 
     @JDropdown(root = "div[ui=dropdown]",
