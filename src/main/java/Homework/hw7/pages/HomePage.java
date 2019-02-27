@@ -1,11 +1,9 @@
 package Homework.hw7.pages;
 
-import Homework.hw7.utils.Defaults;
 import Homework.hw7.utils.NavigationItems;
 import Homework.hw7.utils.Users;
 import Homework.hw7.forms.Header;
 import com.epam.jdi.light.elements.composite.WebPage;
-import org.testng.Assert;
 
 import static Homework.hw7.pages.EpamWebsite.*;
 import static org.testng.Assert.*;
@@ -20,7 +18,7 @@ public class HomePage extends WebPage {
         assertEquals(header.usernameDisplayed.getText(), user.fullName);
     }
 
-    public void openMenuItem(NavigationItems item){
+    public void openMenuItem(NavigationItems item) {
         header.navigationBar.select(item.toString());
         metalsAndColorsPage.shouldBeOpened();
     }

@@ -32,12 +32,10 @@ public class JdiTest {
         homePage.openMenuItem(METALS_COLORS);
 
         // 3. Fill form Metals & Colors by data
-        metalsAndColorsPage.enterData(DEFAULT_DATA);
-
         // Submit form Metals & Colors
-        metalsAndColorsPage.submitData();
+        metalsAndColorsPage.metalsAndColorsForm.submit(DEFAULT_DATA);
 
-        // 4. Result sections should contains data
+        // 4. Result sections should contain data
         metalsAndColorsPage.checkResult(DEFAULT_DATA);
     }
 }

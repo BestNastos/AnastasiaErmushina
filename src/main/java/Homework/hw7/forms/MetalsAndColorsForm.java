@@ -1,5 +1,6 @@
-package Homework.hw7_Form;
+package Homework.hw7.forms;
 
+import Homework.hw7.utils.MetalsAndColorsData;
 import com.epam.jdi.light.elements.complex.Droplist;
 import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.Form;
@@ -8,18 +9,15 @@ import com.epam.jdi.light.elements.pageobjects.annotations.simple.Css;
 import com.epam.jdi.light.ui.html.common.Button;
 import com.epam.jdi.light.ui.html.complex.RadioButtons;
 
-public class MCform extends Form<MC> {
+public class MetalsAndColorsForm extends Form<MetalsAndColorsData> {
 
-    @Css(".results > li")
-    public static WebList results;
-
-    @Css("[id='odds-selector']")
+    @Css("#odds-selector")
     public static RadioButtons oddNumbersSummary;
 
-    @Css("[id='even-selector']")
+    @Css("#even-selector")
     public static RadioButtons evenNumbersSummary;
 
-    @Css("[id='elements-checklist'] > p > label")
+    @Css("#elements-checklist > p > label")
     public static WebList forcesOfNature;
 
     @JDropdown(root = "div[ui=dropdown]",
@@ -35,14 +33,27 @@ public class MCform extends Form<MC> {
     public static Droplist metals;
 
     @JDropdown(root = "div[ui=droplist]",
-            value = "dropdown-menu",
+            value = ".dropdown-toggle",
             list = "li",
             expand = ".caret")
     public static Droplist vegetables;
-    @Css("#submit-button")public Button submit;
 
-    public void m(){
+    @Css("#submit-button")
+    public static Button submitButton;
 
+    @Override
+    public void submit(MetalsAndColorsData data) {
+        oddNumbersSummary.select(data.oddNumber);
+        evenNumbersSummary.select(data.evenNumber);
+        for (String force : data.forces) {
+            forcesOfNature.select(force);
+        }
+        colors.select(data.color);
+        metals.select(data.metal);
+        vegetables.select(vegetables.getSelected());
+        for (String vegetable : data.vegetables) {
+            vegetables.select(vegetable);
+        }
+        submitButton.click();
     }
-
 }
