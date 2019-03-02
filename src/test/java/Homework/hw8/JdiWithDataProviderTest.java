@@ -6,7 +6,6 @@ import com.epam.jdi.light.driver.WebDriverFactory;
 import com.epam.jdi.light.ui.html.PageFactory;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.testng.annotations.AfterMethod;
@@ -58,7 +57,8 @@ public class JdiWithDataProviderTest {
         Object[][] returnedArray = new Object[jsonObject.size()][1];
         for (int i = 0; i < returnedArray.length; i++) {
             returnedArray[i][0] = new Gson()
-                    .fromJson(jsonObject.get("data_" + (i + 1)), new TypeToken<MetalsColorsFormData>(){}.getType());
+                    .fromJson(jsonObject.get("data_" + (i + 1)), new TypeToken<MetalsColorsFormData>() {
+                    }.getType());
         }
         return returnedArray;
     }

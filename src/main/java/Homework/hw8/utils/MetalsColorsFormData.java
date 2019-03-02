@@ -18,8 +18,8 @@ public class MetalsColorsFormData {
     public String metals;
     public List<String> vegetables;
 
-    public static String listToStringWithoutBrackets(List<String> metalsColorsPageList){
-        return metalsColorsPageList.toString().substring(1,
-                metalsColorsPageList.toString().length() - 1);
+    public static String listToStringWithoutBrackets(List<String> webElementList) {
+        return webElementList.toString().substring(1,
+                webElementList.toString().length() - 1);
     }
 }
