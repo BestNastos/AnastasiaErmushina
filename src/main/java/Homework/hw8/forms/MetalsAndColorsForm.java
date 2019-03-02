@@ -12,34 +12,34 @@ import com.epam.jdi.light.ui.html.complex.RadioButtons;
 public class MetalsAndColorsForm extends Form<MetalsColorsFormData> {
 
     @Css("#odds-selector")
-    public RadioButtons oddNumbersSummary;
+    private RadioButtons oddNumbersSummary;
 
     @Css("#even-selector")
-    public RadioButtons evenNumbersSummary;
+    private RadioButtons evenNumbersSummary;
 
     @Css("#elements-checklist > p > label")
-    public WebList forcesOfNature;
+    private WebList forcesOfNature;
 
     @JDropdown(root = "div[ui=dropdown]",
             value = ".filter-option",
             list = "li",
             expand = ".caret")
-    public Droplist colors;
+    private Droplist colors;
 
     @JDropdown(root = "div[ui=combobox]",
             value = "input",
             list = "li",
             expand = ".caret")
-    public Droplist metals;
+    private Droplist metals;
 
     @JDropdown(root = "div[ui=droplist]",
             value = ".dropdown-toggle",
             list = "li",
             expand = ".caret")
-    public Droplist vegetables;
+    private Droplist vegetables;
 
     @Css("#submit-button")
-    public Button submitButton;
+    private Button submitButton;
 
     @Override
     public void submit(MetalsColorsFormData data) {
