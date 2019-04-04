@@ -1,6 +1,7 @@
 package Homework.hw4.ex1;
 
-import Homework.hw4.ex1.Enums.ServiceSubmenu;
+import Homework.hw4.ex1.Enums.ServiceSubmenuLeft;
+import Homework.hw4.ex1.Enums.ServiceSubmenuTop;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -41,10 +42,10 @@ public class DifferentElementsPageTest extends SelenideBaseHomework {
         homePage.checkIfUsernameIsCorrect(PITER);
 
         //5 Click on "Service" subcategory in the header and check that drop down contains options
-        homePage.checkServiceHeaderOptions(ServiceSubmenu.values());
+        homePage.checkServiceHeaderOptions(ServiceSubmenuTop.values());
 
         //6 Click on Service subcategory in the left section and check that drop down contains options
-        homePage.checkServiceLeftSectionOptions(ServiceSubmenu.values());
+        homePage.checkServiceLeftSectionOptions(ServiceSubmenuLeft.values());
 
         //7 Open through the header menu Service -> Different Elements Page
         homePage.openDifferentElementsPage();

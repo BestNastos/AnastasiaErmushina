@@ -1,10 +1,11 @@
 package Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums;
 
-public enum ServiceSubmenu {
+public enum ServiceSubmenuLeft {
     SUPPORT("SUPPORT"),
     DATES("DATES"),
     COMPLEX_TABLE("COMPLEX TABLE"),
     SIMPLE_TABLE("SIMPLE TABLE"),
+    SEARCH("SEARCH"),
     USER_TABLE("USER TABLE"),
     TABLE_WITH_PAGES("TABLE WITH PAGES"),
     DIFFERENT_ELEMENTS("DIFFERENT ELEMENTS"),
@@ -12,7 +13,7 @@ public enum ServiceSubmenu {
 
     private String text;
 
-    ServiceSubmenu(String text) {
+    ServiceSubmenuLeft(String text) {
         this.text = text;
     }
 

@@ -1,12 +1,14 @@
 package Homework.hw4.ex1;
 
 import Homework.hw4.ex1.Enums.HomePageInfo;
-import Homework.hw4.ex1.Enums.ServiceSubmenu;
+import Homework.hw4.ex1.Enums.ServiceSubmenuLeft;
+import Homework.hw4.ex1.Enums.ServiceSubmenuTop;
 import Homework.hw4.ex1.Enums.WebUser;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
+import static Homework.hw4.ex1.Enums.ServiceSubmenuTop.*;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
@@ -55,7 +57,7 @@ public class HomePage {
         usernameElement.shouldHave(text(user.name));
     }
 
-    public void checkServiceHeaderOptions(ServiceSubmenu[] dropdownElements) {
+    public void checkServiceHeaderOptions(ServiceSubmenuTop[] dropdownElements) {
         headerService.click();
         for (int i = 0; i < dropdownElements.length; i++) {
             headerServiceOptions.get(i).exists();
@@ -63,7 +65,7 @@ public class HomePage {
         }
     }
 
-    public void checkServiceLeftSectionOptions(ServiceSubmenu[] dropdownElements) {
+    public void checkServiceLeftSectionOptions(ServiceSubmenuLeft[] dropdownElements) {
         leftSideService.click();
         for (int i = 0; i < dropdownElements.length; i++) {
             leftSideServiceOptions.get(i).exists();
@@ -73,6 +75,6 @@ public class HomePage {
 
     public void openDifferentElementsPage() {
         headerService.click();
-        headerServiceOptions.get(6).click();
+        headerServiceOptions.findBy(text(DIFFERENT_ELEMENTS.toString())).click();
     }
 }

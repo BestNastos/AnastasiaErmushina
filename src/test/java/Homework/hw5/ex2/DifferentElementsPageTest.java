@@ -1,7 +1,8 @@
 package Homework.hw5.ex2;
 
 import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.DifferentElementsPage;
-import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ServiceSubmenu;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ServiceSubmenuLeft;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ServiceSubmenuTop;
 import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.HomePage;
 import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.SelenideBaseHomework;
 import Homework.hw5.ex1.Listener;
@@ -53,10 +54,10 @@ public class DifferentElementsPageTest extends SelenideBaseHomework {
         homePage.checkIfUsernameIsCorrect(PITER);
 
         //5 Click on "Service" subcategory in the header and check that drop down contains options
-        homePage.checkServiceHeaderOptions(ServiceSubmenu.values());
+        homePage.checkServiceHeaderOptions(ServiceSubmenuTop.values());
 
         //6 Click on Service subcategory in the left section and check that drop down contains options
-        homePage.checkServiceLeftSectionOptions(ServiceSubmenu.values());
+        homePage.checkServiceLeftSectionOptions(ServiceSubmenuLeft.values());
 
         //7 Open through the header menu Service -> Different Elements Page
         homePage.openDifferentElementsPage();

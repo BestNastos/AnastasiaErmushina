@@ -1,13 +1,15 @@
 package Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations;
 
 import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.HomePageInfo;
-import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ServiceSubmenu;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ServiceSubmenuLeft;
+import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ServiceSubmenuTop;
 import Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.WebUser;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 
+import static Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums.ServiceSubmenuLeft.*;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
@@ -60,7 +62,7 @@ public class HomePage {
     }
 
     @Step("Checking if 'Service' dropdown from the header contains options")
-    public void checkServiceHeaderOptions(ServiceSubmenu[] dropdownElements) {
+    public void checkServiceHeaderOptions(ServiceSubmenuTop[] dropdownElements) {
         headerService.click();
         for (int i = 0; i < dropdownElements.length; i++) {
             headerServiceOptions.get(i).exists();
@@ -69,7 +71,7 @@ public class HomePage {
     }
 
     @Step("Checking if 'Service' dropdown from the left section contains options")
-    public void checkServiceLeftSectionOptions(ServiceSubmenu[] dropdownElements) {
+    public void checkServiceLeftSectionOptions(ServiceSubmenuLeft[] dropdownElements) {
         leftSideService.click();
         for (int i = 0; i < dropdownElements.length; i++) {
             leftSideServiceOptions.get(i).exists();
@@ -80,6 +82,6 @@ public class HomePage {
     @Step("Clicking on 'Different Elements' from the header 'Service' dropdown menu")
     public void openDifferentElementsPage() {
         headerService.click();
-        headerServiceOptions.get(6).click();
+        headerServiceOptions.findBy(text(DIFFERENT_ELEMENTS.toString())).click();
     }
 }

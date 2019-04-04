@@ -1,6 +1,6 @@
-package Homework.hw6.ex1.Enums;
+package Homework.hw5.ex1.DiffElementsPageWithAllureAnnotations.Enums;
 
-public enum ServiceSubmenu {
+public enum ServiceSubmenuTop {
     SUPPORT("SUPPORT"),
     DATES("DATES"),
     SEARCH("SEARCH"),
@@ -13,7 +13,7 @@ public enum ServiceSubmenu {
 
     private String text;
 
-    ServiceSubmenu(String text) {
+    ServiceSubmenuTop(String text) {
         this.text = text;
     }
 

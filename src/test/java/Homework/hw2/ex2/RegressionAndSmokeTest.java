@@ -26,6 +26,7 @@ public class RegressionAndSmokeTest {
 
         //3 Perform login
         driver.findElement(By.cssSelector("[id='user-icon']")).click();
+//        By.cssSelector("[id='user-icon']").findElement(driver).click(); <- valid
         driver.findElement(By.cssSelector("[id='name']")).sendKeys("epam");
         driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
         driver.findElement(By.cssSelector("[id='login-button']")).click();

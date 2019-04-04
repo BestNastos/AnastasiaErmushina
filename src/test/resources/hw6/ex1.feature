@@ -13,6 +13,7 @@ Feature: Different Elements Page Test
     Then Service dropdown menu in header displays following options
       | SUPPORT            |
       | DATES              |
+      | SEARCH             |
       | COMPLEX_TABLE      |
       | SIMPLE_TABLE       |
       | USER_TABLE         |
@@ -25,6 +26,7 @@ Feature: Different Elements Page Test
       | DATES              |
       | COMPLEX_TABLE      |
       | SIMPLE_TABLE       |
+      | SEARCH             |
       | USER_TABLE         |
       | TABLE_WITH_PAGES   |
       | DIFFERENT_ELEMENTS |
