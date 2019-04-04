@@ -43,12 +43,12 @@ public class HomePage {
     @FindBy(css = "ul[class='sub'] > li")
     private ElementsCollection leftSideServiceOptions;
 
-    @Step("Checking if title of 'Home Page' is correct")
+    @Step("Checking if title is {0}")
     public void checkTitle(HomePageInfo title) {
         assertEquals(getWebDriver().getTitle(), title.toString());
     }
 
-    @Step("Logging in as 'PITER CHAILOVSKII'")
+    @Step("Logging in as {0}")
     public void login(WebUser user) {
         profileButton.click();
         loginBox.sendKeys(user.login);
@@ -56,12 +56,12 @@ public class HomePage {
         submitButton.click();
     }
 
-    @Step("Checking if username at the top right corner is correct after logging in")
+    @Step("Checking if username is {0} after logging in")
     public void checkIfUsernameIsCorrect(WebUser user) {
         usernameElement.shouldHave(text(user.name));
     }
 
-    @Step("Checking if 'Service' dropdown from the header contains options")
+    @Step("Checking if Service dropdown from the header contains options: {0}")
     public void checkServiceHeaderOptions(ServiceSubmenuTop[] dropdownElements) {
         headerService.click();
         for (int i = 0; i < dropdownElements.length; i++) {
@@ -70,7 +70,7 @@ public class HomePage {
         }
     }
 
-    @Step("Checking if 'Service' dropdown from the left section contains options")
+    @Step("Checking if Service dropdown from the left section contains options: {0}")
     public void checkServiceLeftSectionOptions(ServiceSubmenuLeft[] dropdownElements) {
         leftSideService.click();
         for (int i = 0; i < dropdownElements.length; i++) {

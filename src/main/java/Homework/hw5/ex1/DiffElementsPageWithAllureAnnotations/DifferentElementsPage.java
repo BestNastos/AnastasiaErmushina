@@ -85,25 +85,25 @@ public class DifferentElementsPage {
         radiobuttons.get(expectedText.ordinal()).shouldBe(checked);
     }
 
-    @Step("Checking if log works for radiobuttons with metals")
+    @Step("Checking if log works for radiobuttons with metals: {0}")
     public void checkLogForRadioButton(RadioButtonMetals expectedText) {
         radiobuttonLabels.get(expectedText.ordinal()).shouldHave(text(expectedText.toString())).click();
         log.get(0).shouldHave(text(expectedText.toString()));
     }
 
-    @Step("Selecting a color from the dropdown menu")
+    @Step("Selecting a color {0} from the dropdown menu")
     public void selectColorDropdown(ColorDropdownText expectedColor) {
         colorChoiceDropdown.click();
         colors.get(expectedColor.ordinal()).click();
         colors.get(expectedColor.ordinal()).shouldBe(checked);
     }
 
-    @Step("Checking if log works for color selection in dropdown menu")
+    @Step("Checking if log works for color selection of: '{0}' in dropdown menu")
     public void checkLogForColors(ColorDropdownText expectedColor) {
         log.get(0).shouldHave(text(expectedColor.toString()));
     }
 
-    @Step("Unselecting checkboxes with forces of nature")
+    @Step("Unselecting checkboxes with forces of nature: {0}")
     public void unselectNatureElements(NatureElements... elements) {
         for (NatureElements element : elements) {
             checkboxLabels.get(element.ordinal()).shouldHave(text(element.toString())).click();
@@ -111,7 +111,7 @@ public class DifferentElementsPage {
         }
     }
 
-    @Step("Checking if log works for checkboxes with forces of nature")
+    @Step("Checking if log works for checkboxes with forces of nature: {0}")
     public void checkLogForNatureElements(NatureElements element, boolean isSelected) {
         log.findBy(text(element.toString())).shouldHave(text(": condition changed to " + isSelected));
     }

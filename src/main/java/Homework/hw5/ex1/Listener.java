@@ -11,7 +11,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Listener extends TestListenerAdapter {
 
-    @Attachment(value = "Attachment: {0}", type = "image/png")
+    @Attachment(value = "Attachment:", type = "image/png")
     public byte[] printScreen() {
         byte[] array = {1};
         try {
