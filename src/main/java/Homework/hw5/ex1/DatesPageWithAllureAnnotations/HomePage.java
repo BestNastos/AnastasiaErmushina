@@ -34,12 +34,12 @@ public class HomePage {
     @FindBy(css = "ul[class='dropdown-menu'] > li")
     private ElementsCollection headerServiceOptions;
 
-    @Step("Checking if title of 'Home Page' is correct")
+    @Step("Checking if title is {0}")
     public void checkTitle(HomePageInfo title) {
         assertEquals(getWebDriver().getTitle(), title.toString());
     }
 
-    @Step("Logging in as 'PITER CHAILOVSKII'")
+    @Step("Logging in as {0}")
     public void login(WebUser user) {
         profileButton.click();
         loginBox.sendKeys(user.login);
@@ -47,12 +47,12 @@ public class HomePage {
         submitButton.click();
     }
 
-    @Step("Checking if username at the top right corner is correct after logging in")
+    @Step("Checking if username is {0} after logging in")
     public void checkIfUsernameIsCorrect(WebUser user) {
         usernameElement.shouldHave(text(user.name));
     }
 
-    @Step("Clicking on 'Dates' from the header 'Service' dropdown menu")
+    @Step("Clicking on Dates from the header Service dropdown menu")
     public void openDatesPage() {
         headerService.click();
         headerServiceOptions.get(1).click();

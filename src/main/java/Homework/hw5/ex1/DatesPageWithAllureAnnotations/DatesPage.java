@@ -20,7 +20,7 @@ public class DatesPage {
     @FindBy(css = "ul.panel-body-list.logs > li")
     private ElementsCollection log;
 
-    @Step("Setting range using slider handles {0} {1}")
+    @Step("Setting range using slider handles to {0} and {1}")
     public void setRange(int from, int to) {
         double width = slider.getSize().getWidth();
         double percent = width / 100;
@@ -61,7 +61,7 @@ public class DatesPage {
                 .perform();
     }
 
-    @Step("Checking if log shows correct data after setting slider handles")
+    @Step("Checking if log shows correct data after setting slider handles to {0} and {1}")
     public void checkLogForSliders(int from, int to) {
         log.get(0).shouldHave(text("Range 2(To):" + to + " link clicked"));
         log.get(1).shouldHave(text("Range 2(From):" + from + " link clicked"));

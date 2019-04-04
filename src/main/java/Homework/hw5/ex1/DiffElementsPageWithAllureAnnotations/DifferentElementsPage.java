@@ -71,7 +71,7 @@ public class DifferentElementsPage {
         leftSection.shouldBe(visible);
     }
 
-    @Step("Selecting checkboxes with forces of nature")
+    @Step("Selecting checkboxes with forces of nature: {0}")
     public void selectNatureElements(NatureElements ... elements) {
         for (NatureElements element : elements) {
             checkboxLabels.get(element.ordinal()).shouldHave(text(element.toString())).click();
@@ -79,7 +79,7 @@ public class DifferentElementsPage {
         }
     }
 
-    @Step("Selecting a radiobutton with metals")
+    @Step("Selecting a radiobutton with metals: {0}")
     public void selectMetalRadiobutton(RadioButtonMetals expectedText) {
         radiobuttonLabels.get(expectedText.ordinal()).shouldHave(text(expectedText.toString())).click();
         radiobuttons.get(expectedText.ordinal()).shouldBe(checked);
