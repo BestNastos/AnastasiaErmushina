@@ -63,26 +63,26 @@
             <!--5.1.0-->
         </dependency>
 
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>2.6.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.testng</groupId>
-                    <artifactId>testng</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>commons-io</groupId>
-                    <artifactId>commons-io</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>io.qameta.allure</groupId> !!!-->
+            <!--<artifactId>allure-testng</artifactId>-->
+            <!--<version>2.6.0</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.testng</groupId>-->
+                    <!--<artifactId>testng</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                    <!--<groupId>commons-io</groupId>-->
+                    <!--<artifactId>commons-io</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-java-commons</artifactId>
-            <version>2.6.0</version>
+        <!--<dependency>-->
+            <!--<groupId>io.qameta.allure</groupId> !!!-->
+            <!--<artifactId>allure-java-commons</artifactId>-->
+            <!--<version>2.6.0</version>!!!-->
             <!--<exclusions>-->
                 <!--<exclusion>-->
                     <!--<groupId>org.slf4j</groupId>-->
@@ -101,7 +101,7 @@
                     <!--<groupId>junit</groupId>-->
                 <!--</exclusion>-->
             <!--</exclusions>-->
-        </dependency>
+        <!--</dependency>-->
 
         <!--<dependency>-->
             <!--<groupId>org.aspectj</groupId>-->
@@ -194,15 +194,15 @@
         </profile>
     </profiles>
 
-    <reporting>
-        <excludeDefaults>true</excludeDefaults>
-        <plugins>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.9</version>
-            </plugin>
-        </plugins>
-    </reporting>
+    <!--<reporting> !!!-->
+        <!--<excludeDefaults>true</excludeDefaults>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>io.qameta.allure</groupId>-->
+                <!--<artifactId>allure-maven</artifactId>-->
+                <!--<version>2.9</version>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</reporting>-->
 
 </project>
