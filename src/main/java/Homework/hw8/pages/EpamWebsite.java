@@ -14,4 +14,9 @@ public class EpamWebsite {
     @Url("index.html")
     @Title("Home Page")
     public static HomePage homePage;
+
+
+    @Url("html5.html")
+    @Title("html5 Page")
+    public static Html5Page html5page;
 }
